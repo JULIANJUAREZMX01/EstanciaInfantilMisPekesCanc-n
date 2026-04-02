@@ -149,7 +149,7 @@ export default function TiendaIsland() {
               </Show>
               <Show when={product.price === null}>
                 <a
-                  href="https://wa.me/529981234567"
+                  href="https://wa.me/5219982415799"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="w-full py-2 rounded-full bg-green-500 text-white font-bold text-sm text-center hover:opacity-90 transition-opacity"
