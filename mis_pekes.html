@@ -575,6 +575,257 @@
     .hero-stats { gap: 1.5rem; }
     .values-fifth { grid-column: 1; }
   }
+
+  /* ══ JUEGOS INTERACTIVOS ══ */
+  #juegos { background: linear-gradient(160deg, #EAF8FF 0%, #F0FBF7 100%); }
+  .games-tabs {
+    display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;
+  }
+  .game-tab-btn {
+    background: white; border: 2px solid #E8EDF5; border-radius: 50px;
+    padding: .55rem 1.5rem; font-family: 'Nunito', sans-serif; font-weight: 700;
+    font-size: .9rem; color: var(--text-light); cursor: pointer; transition: all .2s;
+  }
+  .game-tab-btn.active { background: var(--deep); color: white; border-color: var(--deep); }
+  .game-tab-btn:hover:not(.active) { border-color: var(--sky); color: var(--deep); }
+  .game-panel {
+    background: white; border-radius: 28px; padding: 1.5rem 2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,.08); max-width: 620px; margin: 0 auto;
+    display: none;
+  }
+  .game-panel.active { display: block; }
+  .game-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1rem; flex-wrap: wrap; gap: .5rem;
+  }
+  .game-stat-badge {
+    font-family: 'Baloo 2', cursive; font-size: 1.15rem; font-weight: 800;
+    background: var(--cream); border-radius: 12px; padding: .3rem .9rem;
+  }
+  .game-stat-badge.timer { color: var(--deep); }
+  .game-stat-badge.score { color: var(--coral); }
+  #bubbleCanvas {
+    display: block; width: 100%; border-radius: 16px; cursor: crosshair;
+    touch-action: none; background: linear-gradient(160deg, #E0F7FA, #E8F5E9);
+  }
+  .btn-game-action {
+    background: linear-gradient(135deg, var(--coral), var(--coral-light));
+    color: white; border: none; border-radius: 50px; padding: .75rem 2rem;
+    font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 700;
+    cursor: pointer; box-shadow: 0 6px 20px rgba(255,107,107,.4);
+    transition: all .3s; margin: 1rem auto 0; display: block;
+  }
+  .btn-game-action:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,107,107,.5); }
+  .game-tip {
+    text-align: center; font-size: .82rem; color: var(--text-light); margin-top: .6rem;
+  }
+  /* Color game */
+  .cg-question { text-align: center; padding: .5rem 0 1.5rem; }
+  .cg-spanish-word {
+    font-family: 'Baloo 2', cursive; font-size: 2.5rem; font-weight: 800;
+    color: var(--deep); display: block; margin-bottom: .2rem;
+  }
+  .cg-maya-hint { font-size: .88rem; color: var(--text-light); font-style: italic; }
+  .cg-colors {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;
+  }
+  .cg-color-btn {
+    aspect-ratio: 1; border-radius: 18px; border: 3px solid transparent;
+    cursor: pointer; transition: all .25s; box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  }
+  .cg-color-btn:hover { transform: scale(1.08); }
+  .cg-color-btn.correct { border-color: #2DC653 !important; box-shadow: 0 0 0 4px rgba(45,198,83,.3); }
+  .cg-color-btn.wrong { border-color: var(--coral) !important; animation: cgShake .4s; }
+  @keyframes cgShake {
+    0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)}
+  }
+  .cg-score-display {
+    text-align: center; font-weight: 700; font-size: 1rem;
+    color: var(--teal-dark); min-height: 1.5rem;
+  }
+
+  /* ══ DICCIONARIO MAYA ══ */
+  #maya { background: linear-gradient(160deg, #FFF9F0 0%, #F8F0FF 60%, #F0FBF8 100%); }
+  .maya-banner {
+    background: linear-gradient(135deg, #1A3C5E 0%, #2d6a4f 100%);
+    border-radius: 28px; padding: 2.5rem; color: white;
+    text-align: center; margin-bottom: 2rem; position: relative; overflow: hidden;
+  }
+  .maya-banner::before {
+    content: '🌺🌿🦋'; position: absolute; top: -10px; left: 0; right: 0;
+    font-size: 2.5rem; opacity: .12; letter-spacing: 2rem; white-space: nowrap; overflow: hidden;
+  }
+  .maya-banner h3 {
+    font-family: 'Baloo 2', cursive; font-size: 1.9rem; font-weight: 800;
+    margin-bottom: .6rem; position: relative;
+  }
+  .maya-banner p {
+    font-size: .95rem; opacity: .88; line-height: 1.7; position: relative;
+    max-width: 540px; margin: 0 auto;
+  }
+  .maya-deco-row {
+    display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0 2rem;
+  }
+  .maya-deco-item {
+    background: white; border-radius: 16px; padding: .6rem 1.1rem;
+    display: flex; align-items: center; gap: .5rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,.07); font-weight: 700; font-size: .88rem;
+    color: var(--deep); animation: floatY 5s ease-in-out infinite;
+  }
+  .maya-deco-item:nth-child(2) { animation-delay: -2s; }
+  .maya-deco-item:nth-child(3) { animation-delay: -3.5s; }
+  .maya-deco-item:nth-child(4) { animation-delay: -1s; }
+  .maya-cats {
+    display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;
+  }
+  .maya-cat-btn {
+    background: white; border: 2px solid #E8EDF5; border-radius: 50px;
+    padding: .4rem 1.1rem; font-family: 'Nunito', sans-serif; font-weight: 700;
+    font-size: .82rem; color: var(--text-light); cursor: pointer; transition: all .2s;
+  }
+  .maya-cat-btn.active { background: var(--sun); color: white; border-color: var(--sun); }
+  .maya-cat-btn:hover:not(.active) { border-color: var(--text-light); color: var(--text); }
+  .maya-dict-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: 1rem; margin-bottom: 3rem;
+  }
+  .maya-card {
+    background: white; border-radius: 20px; padding: 1.2rem;
+    text-align: center; border: 2px solid transparent;
+    box-shadow: 0 3px 12px rgba(0,0,0,.06); cursor: pointer;
+    transition: all .3s; position: relative; overflow: hidden;
+  }
+  .maya-card:hover { border-color: var(--sun); transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.1); }
+  .maya-card-glyph { font-size: 2.2rem; display: block; margin-bottom: .4rem; }
+  .maya-card-word {
+    font-family: 'Baloo 2', cursive; font-size: 1.15rem; font-weight: 800;
+    color: var(--deep); display: block; margin-bottom: .15rem;
+  }
+  .maya-card-phonetic {
+    font-size: .68rem; color: var(--text-light); font-style: italic;
+    margin-bottom: .4rem; display: block;
+  }
+  .maya-card-spanish { font-size: .85rem; font-weight: 700; color: var(--coral); display: block; margin-bottom: .4rem; }
+  .maya-card-cat {
+    font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
+    background: var(--cream); border-radius: 50px; padding: .1rem .55rem;
+    color: var(--text-light); display: inline-block;
+  }
+  .maya-speak-btn {
+    position: absolute; top: .5rem; right: .5rem;
+    background: var(--cream); border: none; border-radius: 50%;
+    width: 28px; height: 28px; cursor: pointer; font-size: .85rem;
+    display: flex; align-items: center; justify-content: center; transition: all .2s; line-height: 1;
+  }
+  .maya-speak-btn:hover { background: var(--sun); transform: scale(1.15); }
+  /* Videos */
+  .video-cards-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem; margin-bottom: 3rem;
+  }
+  .video-card {
+    background: white; border-radius: 20px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,.07); transition: all .3s;
+  }
+  .video-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
+  .video-thumb {
+    aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; position: relative; cursor: pointer;
+    text-decoration: none;
+  }
+  .video-thumb-icon { font-size: 3rem; margin-bottom: .5rem; }
+  .video-play-btn {
+    position: absolute; width: 54px; height: 54px; background: rgba(0,0,0,.55);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; color: white; transition: all .3s;
+  }
+  .video-thumb:hover .video-play-btn { background: var(--coral); transform: scale(1.1); }
+  .video-card-body { padding: 1rem 1.2rem; }
+  .video-card-body h4 { font-size: .95rem; font-weight: 700; color: var(--deep); margin-bottom: .3rem; }
+  .video-card-body p { font-size: .8rem; color: var(--text-light); line-height: 1.5; }
+  /* Quiz */
+  .maya-quiz-wrapper {
+    background: white; border-radius: 28px; padding: 2.5rem;
+    max-width: 560px; margin: 0 auto; box-shadow: 0 8px 32px rgba(0,0,0,.08);
+  }
+  .mq-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap;
+  }
+  .mq-progress-wrap { flex: 1; min-width: 150px; }
+  .mq-progress-bar { height: 8px; background: #E8EDF5; border-radius: 50px; overflow: hidden; }
+  .mq-progress-fill {
+    height: 100%; background: linear-gradient(90deg, var(--teal), var(--sun));
+    border-radius: 50px; width: 0%; transition: width .4s;
+  }
+  .mq-score {
+    font-family: 'Baloo 2', cursive; font-size: 1.3rem; font-weight: 800;
+    color: var(--coral); background: var(--cream); padding: .25rem .9rem; border-radius: 12px;
+  }
+  .mq-question {
+    font-family: 'Baloo 2', cursive; font-size: 2.2rem; font-weight: 800;
+    color: var(--deep); text-align: center; margin-bottom: .4rem;
+  }
+  .mq-hint {
+    text-align: center; font-size: .85rem; color: var(--text-light); margin-bottom: 1.8rem;
+  }
+  .mq-choices {
+    display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-bottom: 1.2rem;
+  }
+  .mq-choice {
+    background: var(--cream); border: 2px solid #E8EDF5; border-radius: 14px;
+    padding: .85rem; font-family: 'Nunito', sans-serif; font-weight: 700;
+    font-size: .9rem; color: var(--deep); cursor: pointer; transition: all .2s; text-align: center;
+  }
+  .mq-choice:hover:not(:disabled) { border-color: var(--teal); background: #E0FBF5; transform: scale(1.02); }
+  .mq-choice.correct { background: #E0FBF5 !important; border-color: var(--teal) !important; color: var(--teal-dark) !important; }
+  .mq-choice.wrong { background: #FFE8E8 !important; border-color: var(--coral) !important; color: var(--coral) !important; }
+  .mq-choice:disabled { cursor: default; }
+  .mq-feedback { text-align: center; font-weight: 700; font-size: 1rem; min-height: 28px; margin-bottom: .5rem; }
+  .mq-next-btn {
+    display: block; width: 100%; background: linear-gradient(135deg, var(--deep), #2a5a8a);
+    color: white; border: none; border-radius: 50px; padding: .8rem;
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 1rem;
+    cursor: pointer; transition: all .25s; box-shadow: 0 4px 16px rgba(26,60,94,.3);
+    margin-top: .8rem;
+  }
+  .mq-next-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,60,94,.4); }
+  .mq-complete { text-align: center; padding: 1.5rem 0; }
+  .mq-complete-emoji { font-size: 4rem; display: block; margin-bottom: .8rem; }
+  .mq-final-score {
+    font-family: 'Baloo 2', cursive; font-size: 3rem; font-weight: 800; color: var(--coral);
+  }
+  .mq-restart-btn {
+    background: linear-gradient(135deg, var(--coral), var(--coral-light));
+    color: white; border: none; border-radius: 50px; padding: .75rem 2rem;
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 1rem;
+    cursor: pointer; box-shadow: 0 6px 20px rgba(255,107,107,.4);
+    transition: all .3s; margin-top: 1.5rem;
+  }
+  .mq-restart-btn:hover { transform: translateY(-2px); }
+  /* Confetti */
+  #confetti-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 9999; overflow: hidden;
+  }
+  .confetti-piece {
+    position: absolute; opacity: 0;
+    animation: confettiFall linear forwards;
+  }
+  @keyframes confettiFall {
+    0% { opacity: 1; transform: translateY(-20px) rotate(0deg) scale(1); }
+    100% { opacity: 0; transform: translateY(100vh) rotate(720deg) scale(.5); }
+  }
+  @media (max-width: 900px) {
+    .maya-dict-grid { grid-template-columns: repeat(2, 1fr); }
+    .mq-choices { grid-template-columns: 1fr; }
+    .cg-colors { grid-template-columns: repeat(2, 1fr); }
+    .game-panel { padding: 1.2rem; }
+  }
+  @media (max-width: 580px) {
+    .maya-dict-grid { grid-template-columns: repeat(2, 1fr); }
+    .game-topbar { flex-direction: column; align-items: flex-start; gap: .4rem; }
+  }
 </style>
 </head>
 <body>
@@ -593,6 +844,8 @@
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#instalaciones">Instalaciones</a></li>
+      <li><a href="#juegos">🎮 Juegos</a></li>
+      <li><a href="#maya">🌺 Maya</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contacto">Contacto</a></li>
       <li><a href="https://wa.me/5219982415799" target="_blank" class="nav-cta">WhatsApp ✉</a></li>
@@ -605,6 +858,8 @@
     <a href="#servicios" onclick="toggleMenu()">🎨 Servicios</a>
     <a href="#nosotros" onclick="toggleMenu()">💛 Nosotros</a>
     <a href="#instalaciones" onclick="toggleMenu()">🏡 Instalaciones</a>
+    <a href="#juegos" onclick="toggleMenu()">🎮 Juegos Educativos</a>
+    <a href="#maya" onclick="toggleMenu()">🌺 Diccionario Maya</a>
     <a href="#faq" onclick="toggleMenu()">❓ Preguntas Frecuentes</a>
     <a href="#contacto" onclick="toggleMenu()">📬 Contacto</a>
     <a href="https://wa.me/5219982415799" target="_blank" class="mobile-cta-btn">💬 Escríbenos por WhatsApp</a>
@@ -873,6 +1128,156 @@
   </div>
 </section>
 
+<!-- ══ JUEGOS INTERACTIVOS ══ -->
+<section id="juegos">
+  <div class="max-w">
+    <div style="text-align:center; max-width:600px; margin:0 auto 3rem">
+      <div class="section-label sl-teal fade-in" style="justify-content:center">Zona Interactiva</div>
+      <h2 class="section-title fade-in">Juegos que <em>enseñan</em> y <strong>divierten</strong> 🎮</h2>
+      <p class="section-sub fade-in" style="margin:0 auto; text-align:center">Actividades lúdico-educativas para desarrollar coordinación, colores y habilidades cognitivas</p>
+    </div>
+
+    <div class="games-tabs fade-in">
+      <button class="game-tab-btn active" onclick="switchGame('bubble',this)">🫧 Atrapa Burbujas</button>
+      <button class="game-tab-btn" onclick="switchGame('colors',this)">🌈 Aprende Colores Maya</button>
+    </div>
+
+    <!-- Bubble game -->
+    <div id="game-bubble" class="game-panel active fade-in">
+      <div class="game-topbar">
+        <div class="game-stat-badge score" id="bubbleScore">🫧 0 puntos</div>
+        <strong style="font-family:'Baloo 2',cursive;color:var(--deep);font-size:1.1rem">¡Atrapa las Burbujas!</strong>
+        <div class="game-stat-badge timer" id="bubbleTimer">⏱ 30s</div>
+      </div>
+      <canvas id="bubbleCanvas" width="560" height="320"></canvas>
+      <button class="btn-game-action" id="bubbleBtn" onclick="startBubbleGame()">▶ Iniciar Juego</button>
+      <p class="game-tip">Haz clic o toca las burbujas antes de que desaparezcan · Desarrolla la coordinación motriz 👆</p>
+    </div>
+
+    <!-- Color game -->
+    <div id="game-colors" class="game-panel fade-in">
+      <div class="cg-question">
+        <span class="cg-spanish-word" id="cgWord">¿Listo para jugar?</span>
+        <span class="cg-maya-hint" id="cgMaya">Toca el color correcto en la cuadrícula</span>
+      </div>
+      <div class="cg-colors" id="cgGrid"></div>
+      <div class="cg-score-display" id="cgScore"></div>
+      <button class="btn-game-action" id="cgBtn" onclick="startColorGame()">▶ Iniciar Juego</button>
+      <p class="game-tip">Selecciona el color correcto · Aprende los colores en español y en maya yucateco 🌈</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DICCIONARIO MAYA ══ -->
+<section id="maya">
+  <div class="max-w">
+
+    <!-- Banner -->
+    <div class="maya-banner fade-in">
+      <h3>🌺 Mi Primer Peke Diccionario Maya 🌺</h3>
+      <p>En Cancún somos parte de la rica cultura maya. Aprender la lengua maya yucateca es un orgullo que nos conecta con nuestras raíces y las de nuestra tierra. ¡Exploremos juntos las palabras de nuestros ancestros!</p>
+    </div>
+
+    <!-- Floating decorations -->
+    <div class="maya-deco-row fade-in">
+      <div class="maya-deco-item">☀️ K'in = Sol</div>
+      <div class="maya-deco-item">💧 Ja' = Agua</div>
+      <div class="maya-deco-item">🌺 Nich = Flor</div>
+      <div class="maya-deco-item">⭐ Ek' = Estrella</div>
+    </div>
+
+    <!-- Category filters -->
+    <div class="maya-cats fade-in" id="mayCats">
+      <button class="maya-cat-btn active" onclick="filterMaya('all',this)">🌟 Todas</button>
+      <button class="maya-cat-btn" onclick="filterMaya('saludos',this)">👋 Saludos</button>
+      <button class="maya-cat-btn" onclick="filterMaya('familia',this)">👨‍👩‍👧 Familia</button>
+      <button class="maya-cat-btn" onclick="filterMaya('naturaleza',this)">🌿 Naturaleza</button>
+      <button class="maya-cat-btn" onclick="filterMaya('animales',this)">🐾 Animales</button>
+      <button class="maya-cat-btn" onclick="filterMaya('comida',this)">🍽️ Comida</button>
+      <button class="maya-cat-btn" onclick="filterMaya('colores',this)">🌈 Colores</button>
+      <button class="maya-cat-btn" onclick="filterMaya('numeros',this)">🔢 Números</button>
+      <button class="maya-cat-btn" onclick="filterMaya('sentimientos',this)">💛 Sentimientos</button>
+    </div>
+
+    <!-- Dictionary grid – populated by JS -->
+    <div class="maya-dict-grid" id="mayaDictGrid"></div>
+
+    <!-- Video resources -->
+    <div style="text-align:center; margin:0 0 2rem">
+      <div class="section-label sl-coral fade-in" style="justify-content:center">Aprende con Videos</div>
+      <h2 class="section-title fade-in" style="text-align:center; font-size:clamp(1.5rem,3vw,2rem)">Recursos <em>Educativos</em> de Maya 📺</h2>
+      <p class="section-sub fade-in" style="text-align:center; margin:0 auto">Videos recomendados para escuchar y practicar la lengua maya yucateca</p>
+    </div>
+    <div class="video-cards-grid fade-in">
+      <a class="video-card" href="https://www.youtube.com/results?search_query=lengua+maya+yucateca+para+niños" target="_blank" rel="noopener" style="text-decoration:none">
+        <div class="video-thumb" style="background:linear-gradient(135deg,#1A3C5E,#2d6a4f)">
+          <span class="video-thumb-icon">🎙️</span>
+          <div class="video-play-btn">▶</div>
+        </div>
+        <div class="video-card-body">
+          <h4>Lengua Maya para Niños</h4>
+          <p>Aprende palabras y frases básicas de maya yucateco con canciones y cuentos infantiles.</p>
+        </div>
+      </a>
+      <a class="video-card" href="https://www.youtube.com/results?search_query=cancun+cultura+maya+tradiciones" target="_blank" rel="noopener" style="text-decoration:none">
+        <div class="video-thumb" style="background:linear-gradient(135deg,#FFB800,#FF6B6B)">
+          <span class="video-thumb-icon">🌺</span>
+          <div class="video-play-btn">▶</div>
+        </div>
+        <div class="video-card-body">
+          <h4>Cultura Maya en Cancún</h4>
+          <p>Descubre las tradiciones mayas del estado de Quintana Roo y la Península de Yucatán.</p>
+        </div>
+      </a>
+      <a class="video-card" href="https://www.youtube.com/results?search_query=numeros+maya+yucateco+aprende" target="_blank" rel="noopener" style="text-decoration:none">
+        <div class="video-thumb" style="background:linear-gradient(135deg,#00C9A7,#4ECDC4)">
+          <span class="video-thumb-icon">🔢</span>
+          <div class="video-play-btn">▶</div>
+        </div>
+        <div class="video-card-body">
+          <h4>Números en Maya Yucateco</h4>
+          <p>Aprende a contar del 1 al 20 en maya yucateco con el sistema vigesimal ancestral.</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Quiz section -->
+    <div style="text-align:center; margin:2rem 0 2.5rem">
+      <div class="section-label sl-sun fade-in" style="justify-content:center; margin-bottom:.5rem">Mini Quiz</div>
+      <h2 class="section-title fade-in" style="text-align:center">¿Cuánto has <em>aprendido</em>? 🧠</h2>
+      <p class="section-sub fade-in" style="margin:0 auto; text-align:center">Pon a prueba tu vocabulario maya yucateco</p>
+    </div>
+    <div class="maya-quiz-wrapper fade-in" id="mayaQuizWrapper">
+      <div class="mq-header">
+        <div class="mq-progress-wrap">
+          <div id="mqCounter" style="font-size:.78rem;font-weight:700;color:var(--text-light);margin-bottom:.3rem">Pregunta 1 / 10</div>
+          <div class="mq-progress-bar"><div class="mq-progress-fill" id="mqFill"></div></div>
+        </div>
+        <div class="mq-score" id="mqScore">0 ⭐</div>
+      </div>
+      <div id="mqQuestionArea" style="display:none">
+        <div class="mq-question" id="mqWord"></div>
+        <div class="mq-hint" id="mqHint"></div>
+        <div class="mq-choices" id="mqChoices"></div>
+        <div class="mq-feedback" id="mqFeedback"></div>
+        <button class="mq-next-btn" id="mqNextBtn" onclick="nextQuizQ()" style="display:none">Siguiente →</button>
+      </div>
+      <div id="mqComplete" style="display:none" class="mq-complete">
+        <span class="mq-complete-emoji" id="mqCompleteEmoji">🎉</span>
+        <div class="mq-final-score" id="mqFinalScore"></div>
+        <p style="color:var(--text-light);margin-top:.5rem" id="mqFinalMsg"></p>
+        <button class="mq-restart-btn" onclick="startMayaQuiz()">Jugar de nuevo 🔄</button>
+      </div>
+      <div id="mqStart" style="text-align:center;padding:1rem 0">
+        <p style="color:var(--text-light);margin-bottom:1.5rem;font-size:.95rem">¡Practica las palabras que aprendiste! Se elegirán 10 palabras al azar.</p>
+        <button class="btn-wa" onclick="startMayaQuiz()" style="background:linear-gradient(135deg,var(--sun),#E8A000);box-shadow:0 6px 20px rgba(255,184,0,.4);border:none;cursor:pointer">
+          🎮 Iniciar Quiz Maya
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ FAQ ══ -->
 <section id="faq">
   <div class="max-w">
@@ -1038,6 +1443,8 @@
     <a href="#servicios">Servicios</a>
     <a href="#nosotros">Nosotros</a>
     <a href="#instalaciones">Instalaciones</a>
+    <a href="#juegos">Juegos 🎮</a>
+    <a href="#maya">Maya 🌺</a>
     <a href="#faq">FAQ</a>
     <a href="#contacto">Contacto</a>
   </div>
@@ -1113,6 +1520,450 @@
       menu.classList.remove('open');
     }
   });
+
+  // ══ GAME TAB SWITCHER ══
+  function switchGame(name, btn) {
+    document.querySelectorAll('.game-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.game-tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('game-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // ══ BUBBLE GAME ══
+  let bubbleGameActive = false;
+  let bubbles = [];
+  let bubbleScore = 0;
+  let bubbleTimeLeft = 30;
+  let bubbleIntervals = [];
+  let bubbleAnimFrame = null;
+
+  function startBubbleGame() {
+    bubbles = [];
+    bubbleScore = 0;
+    bubbleTimeLeft = 30;
+    bubbleGameActive = true;
+    bubbleIntervals.forEach(clearInterval);
+    bubbleIntervals = [];
+    if (bubbleAnimFrame) cancelAnimationFrame(bubbleAnimFrame);
+
+    document.getElementById('bubbleScore').textContent = '🫧 0 puntos';
+    document.getElementById('bubbleTimer').textContent = '⏱ 30s';
+    document.getElementById('bubbleBtn').style.display = 'none';
+
+    const canvas = document.getElementById('bubbleCanvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.onmousedown = (e) => {
+      const r = canvas.getBoundingClientRect();
+      popBubbleAt((e.clientX - r.left) * (canvas.width / r.width), (e.clientY - r.top) * (canvas.height / r.height));
+    };
+    canvas.ontouchstart = (e) => {
+      e.preventDefault();
+      const r = canvas.getBoundingClientRect();
+      const t = e.touches[0];
+      popBubbleAt((t.clientX - r.left) * (canvas.width / r.width), (t.clientY - r.top) * (canvas.height / r.height));
+    };
+
+    const spawnId = setInterval(() => {
+      if (!bubbleGameActive) { clearInterval(spawnId); return; }
+      if (bubbles.length < 14) spawnBubble(canvas.width, canvas.height);
+    }, 700);
+    bubbleIntervals.push(spawnId);
+
+    const timerId = setInterval(() => {
+      bubbleTimeLeft--;
+      document.getElementById('bubbleTimer').textContent = '⏱ ' + bubbleTimeLeft + 's';
+      if (bubbleTimeLeft <= 0) {
+        clearInterval(timerId);
+        spawnId && clearInterval(spawnId);
+        bubbleGameActive = false;
+        finishBubbleGame();
+      }
+    }, 1000);
+    bubbleIntervals.push(timerId);
+
+    (function loop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      bubbles = bubbles.filter(b => {
+        b.y -= b.speed;
+        b.x += Math.sin(b.wobble += .05) * .9;
+        if (b.popping) { b.popR += 4; b.alpha -= .09; }
+        if (b.alpha <= 0 || b.y + b.r < -10) return false;
+        ctx.save();
+        ctx.globalAlpha = b.alpha;
+        const g = ctx.createRadialGradient(b.x - b.r * .3, b.y - b.r * .3, b.r * .1, b.x, b.y, b.r);
+        g.addColorStop(0, 'rgba(255,255,255,.72)');
+        g.addColorStop(.5, b.color + '88');
+        g.addColorStop(1, b.color + 'cc');
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.popping ? b.popR : b.r, 0, Math.PI * 2);
+        ctx.fillStyle = g;
+        ctx.fill();
+        if (!b.popping) {
+          ctx.strokeStyle = b.color + '99';
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+          ctx.font = Math.round(b.r * .9) + 'px serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillStyle = 'rgba(255,255,255,.9)';
+          ctx.fillText(b.emoji, b.x, b.y);
+        }
+        ctx.restore();
+        return true;
+      });
+      bubbleAnimFrame = requestAnimationFrame(loop);
+    })();
+  }
+
+  function spawnBubble(w, h) {
+    const colors = ['#FF6B6B','#FFB800','#00C9A7','#4ECDC4','#C9B8FF','#FF8E8E','#7BC043'];
+    const emojis = ['⭐','🌟','🎈','🌸','🍎','🦋','🌈','💛','🎵','🫧','🏵️','🍀'];
+    const r = 24 + Math.random() * 22;
+    bubbles.push({
+      x: r + Math.random() * (w - 2 * r), y: h + r, r,
+      speed: .7 + Math.random() * 1.3,
+      wobble: Math.random() * Math.PI * 2,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      emoji: emojis[Math.floor(Math.random() * emojis.length)],
+      alpha: 1, popping: false, popR: 0
+    });
+  }
+
+  function popBubbleAt(x, y) {
+    for (let i = bubbles.length - 1; i >= 0; i--) {
+      const b = bubbles[i];
+      if (!b.popping && Math.hypot(x - b.x, y - b.y) < b.r) {
+        b.popping = true; b.popR = b.r;
+        bubbleScore++;
+        document.getElementById('bubbleScore').textContent = '🫧 ' + bubbleScore + ' punto' + (bubbleScore === 1 ? '' : 's');
+        playPop();
+        break;
+      }
+    }
+  }
+
+  function finishBubbleGame() {
+    const btn = document.getElementById('bubbleBtn');
+    btn.style.display = 'block';
+    if (bubbleScore >= 20) { btn.textContent = '🏆 ¡Increíble! ' + bubbleScore + ' pts · Jugar de nuevo'; launchConfetti(); }
+    else if (bubbleScore >= 10) { btn.textContent = '⭐ ¡Bien! ' + bubbleScore + ' pts · Jugar de nuevo'; }
+    else { btn.textContent = '🔄 ' + bubbleScore + ' pts · ¡Inténtalo otra vez!'; }
+  }
+
+  // ══ COLOR GAME ══
+  const colorsData = [
+    { maya: 'Chak',         spanish: 'Rojo',      hex: '#E63946' },
+    { maya: "K'an",         spanish: 'Amarillo',   hex: '#FFB800' },
+    { maya: 'Yax',          spanish: 'Verde',      hex: '#2DC653' },
+    { maya: "Ek'",          spanish: 'Negro',      hex: '#1A1A2E' },
+    { maya: 'Sak',          spanish: 'Blanco',     hex: '#F0F0F0' },
+    { maya: "Yax k'áak'nab",spanish: 'Azul',      hex: '#4ECDC4' },
+  ];
+  let cgActive = false, cgScore = 0, cgTotal = 0;
+
+  function startColorGame() {
+    cgScore = 0; cgTotal = 0; cgActive = true;
+    document.getElementById('cgBtn').style.display = 'none';
+    document.getElementById('cgScore').textContent = '';
+    renderColorQ();
+  }
+
+  function renderColorQ() {
+    const ans = colorsData[Math.floor(Math.random() * colorsData.length)];
+    document.getElementById('cgWord').textContent = ans.spanish;
+    document.getElementById('cgMaya').textContent = 'En maya yucateco: "' + ans.maya + '"';
+    let opts = [ans];
+    const others = colorsData.filter(c => c !== ans);
+    while (opts.length < colorsData.length) {
+      const r = others[Math.floor(Math.random() * others.length)];
+      if (!opts.includes(r)) opts.push(r);
+    }
+    opts = opts.sort(() => Math.random() - .5);
+    const grid = document.getElementById('cgGrid');
+    grid.innerHTML = '';
+    opts.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'cg-color-btn';
+      btn.dataset.hex = c.hex;
+      btn.style.cssText = 'background:' + c.hex + ';' + (c.hex === '#F0F0F0' ? 'border:2px solid #ccc;' : '');
+      btn.onclick = () => checkColorQ(btn, c, ans);
+      grid.appendChild(btn);
+    });
+  }
+
+  function checkColorQ(btn, chosen, answer) {
+    if (!cgActive) return;
+    cgTotal++;
+    document.querySelectorAll('.cg-color-btn').forEach(b => { b.onclick = null; });
+    if (chosen === answer) {
+      btn.classList.add('correct');
+      cgScore++;
+      document.getElementById('cgScore').textContent = '✅ ¡Correcto! "' + answer.maya + '" = ' + answer.spanish + '  (' + cgScore + '/' + cgTotal + ')';
+      playSuccess();
+    } else {
+      btn.classList.add('wrong');
+      document.querySelectorAll('.cg-color-btn').forEach(b => {
+        if (b.dataset.hex === answer.hex) b.classList.add('correct');
+      });
+      document.getElementById('cgScore').textContent = '❌ Era "' + answer.maya + '" = ' + answer.spanish + '  (' + cgScore + '/' + cgTotal + ')';
+    }
+    setTimeout(() => {
+      if (cgTotal >= 10) {
+        document.getElementById('cgScore').textContent = '🎉 ¡Completado! ' + cgScore + '/10 correctas';
+        const cgBtn = document.getElementById('cgBtn');
+        cgBtn.textContent = '🔄 Jugar de nuevo';
+        cgBtn.style.display = 'block';
+        cgActive = false;
+        if (cgScore >= 8) launchConfetti();
+      } else {
+        renderColorQ();
+      }
+    }, 1500);
+  }
+
+  // ══ WEB AUDIO SOUNDS ══
+  let audioCtx;
+  function getCtx() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    return audioCtx;
+  }
+  function playPop() {
+    try {
+      const ctx = getCtx();
+      const osc = ctx.createOscillator(), g = ctx.createGain();
+      osc.connect(g); g.connect(ctx.destination);
+      osc.frequency.setValueAtTime(700, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(180, ctx.currentTime + .16);
+      g.gain.setValueAtTime(.18, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + .22);
+      osc.start(); osc.stop(ctx.currentTime + .22);
+    } catch (e) {}
+  }
+  function playSuccess() {
+    try {
+      const ctx = getCtx();
+      [523, 659, 784, 1047].forEach((freq, i) => {
+        const osc = ctx.createOscillator(), g = ctx.createGain();
+        osc.connect(g); g.connect(ctx.destination);
+        osc.frequency.value = freq; osc.type = 'sine';
+        const t = ctx.currentTime + i * .11;
+        g.gain.setValueAtTime(.12, t);
+        g.gain.exponentialRampToValueAtTime(.001, t + .3);
+        osc.start(t); osc.stop(t + .32);
+      });
+    } catch (e) {}
+  }
+
+  // ══ CONFETTI ══
+  function launchConfetti() {
+    let container = document.getElementById('confetti-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'confetti-container';
+      document.body.appendChild(container);
+    }
+    const colors = ['#FF6B6B','#FFB800','#00C9A7','#4ECDC4','#C9B8FF','#FF8E8E','#ffffff','#2DC653'];
+    for (let i = 0; i < 90; i++) {
+      const p = document.createElement('div');
+      p.className = 'confetti-piece';
+      p.style.cssText = `
+        left:${Math.random() * 100}%;
+        background:${colors[i % colors.length]};
+        width:${6 + Math.random() * 8}px;
+        height:${8 + Math.random() * 10}px;
+        border-radius:${Math.random() > .5 ? '50%' : '2px'};
+        animation-duration:${2 + Math.random() * 2.5}s;
+        animation-delay:${Math.random() * .6}s;
+      `;
+      container.appendChild(p);
+    }
+    setTimeout(() => { container.innerHTML = ''; }, 5000);
+  }
+
+  // ══ MAYA DICTIONARY DATA (55 entries) ══
+  const mayaData = [
+    // Saludos
+    { glyph:'👋', maya:"Ba'ax ka wa'alik?", phonetic:"ba-ash ka wa-a-lik",   spanish:"¿Cómo estás?",            cat:"saludos" },
+    { glyph:'😊', maya:"Ki'imak in wóol",   phonetic:"ki-i-mak in wo-ol",    spanish:"Estoy feliz",             cat:"saludos" },
+    { glyph:'🙏', maya:"Yuum bo'otik",       phonetic:"yum bo-o-tik",          spanish:"Gracias",                 cat:"saludos" },
+    { glyph:'😄', maya:"Mixba'al",           phonetic:"mish-ba-al",            spanish:"De nada",                 cat:"saludos" },
+    { glyph:'🤝', maya:"Bix a beel?",        phonetic:"bish a be-el",          spanish:"¿Cómo te va?",           cat:"saludos" },
+    { glyph:'✅', maya:"Ma'alob",            phonetic:"ma-a-lob",              spanish:"Bien / Bueno",            cat:"saludos" },
+    { glyph:'🚀', maya:"Ko'ox!",             phonetic:"ko-osh",                spanish:"¡Vamos!",                 cat:"saludos" },
+    { glyph:'📅', maya:"Bejla'e'",           phonetic:"bej-la-e",              spanish:"Hoy",                     cat:"saludos" },
+    { glyph:'🌙', maya:"Tak sáamal",         phonetic:"tak sa-a-mal",          spanish:"Hasta mañana",            cat:"saludos" },
+    { glyph:'👀', maya:"Bix a k'aaba'?",     phonetic:"bish a k-a-a-ba",       spanish:"¿Cómo te llamas?",       cat:"saludos" },
+    // Familia
+    { glyph:'👩', maya:"Naa",                phonetic:"na-a",                  spanish:"Mamá",                    cat:"familia" },
+    { glyph:'👨', maya:"Yuum",               phonetic:"yum",                   spanish:"Papá / Señor",            cat:"familia" },
+    { glyph:'👦', maya:"Paal",               phonetic:"pa-al",                 spanish:"Niño / Hijo",             cat:"familia" },
+    { glyph:'👧', maya:"Paalen",             phonetic:"pa-a-len",              spanish:"Niño/a pequeño/a",        cat:"familia" },
+    { glyph:'🧑', maya:"Suku'un",            phonetic:"su-ku-un",              spanish:"Hermano mayor",           cat:"familia" },
+    { glyph:'👱', maya:"Kiik",               phonetic:"ki-ik",                 spanish:"Hermana mayor",           cat:"familia" },
+    { glyph:'👶', maya:"Ts'uup",             phonetic:"ts-uup",                spanish:"El más pequeño",          cat:"familia" },
+    // Naturaleza
+    { glyph:'☀️', maya:"K'in",               phonetic:"k'in",                  spanish:"Sol / Día",               cat:"naturaleza" },
+    { glyph:'🌙', maya:"U",                  phonetic:"u",                     spanish:"Luna",                    cat:"naturaleza" },
+    { glyph:'⭐', maya:"Ek'",                phonetic:"ek'",                   spanish:"Estrella",                cat:"naturaleza" },
+    { glyph:'🌤️', maya:"Ka'an",              phonetic:"ka-an",                 spanish:"Cielo",                   cat:"naturaleza" },
+    { glyph:'💧', maya:"Ja'",                phonetic:"ja'",                   spanish:"Agua",                    cat:"naturaleza" },
+    { glyph:'🔥', maya:"K'áak'",             phonetic:"k-a-ak",                spanish:"Fuego",                   cat:"naturaleza" },
+    { glyph:'🌍', maya:"Lu'um",              phonetic:"lu-um",                 spanish:"Tierra",                  cat:"naturaleza" },
+    { glyph:'🌬️', maya:"Ik'",               phonetic:"ik'",                   spanish:"Viento / Aire",           cat:"naturaleza" },
+    { glyph:'🌳', maya:"Che'",               phonetic:"che'",                  spanish:"Árbol",                   cat:"naturaleza" },
+    { glyph:'🌸', maya:"Nich",               phonetic:"nich",                  spanish:"Flor",                    cat:"naturaleza" },
+    { glyph:'🌊', maya:"Nohol ja'",          phonetic:"no-jol ja'",            spanish:"Mar / Océano",            cat:"naturaleza" },
+    // Animales
+    { glyph:'🐕', maya:"Pek'",               phonetic:"pek'",                  spanish:"Perro",                   cat:"animales" },
+    { glyph:'🐈', maya:"Mis",                phonetic:"mis",                   spanish:"Gato",                    cat:"animales" },
+    { glyph:'🐦', maya:"Ch'iich'",           phonetic:"ch'iich'",              spanish:"Pájaro",                  cat:"animales" },
+    { glyph:'🐟', maya:"Kay",                phonetic:"kay",                   spanish:"Pez",                     cat:"animales" },
+    { glyph:'🦌', maya:"Kéeh",               phonetic:"ke-eh",                 spanish:"Venado",                  cat:"animales" },
+    { glyph:'🐊', maya:"Ayin",               phonetic:"a-yin",                 spanish:"Cocodrilo",               cat:"animales" },
+    // Comida
+    { glyph:'🌽', maya:"Nal",                phonetic:"nal",                   spanish:"Maíz / Elote",            cat:"comida" },
+    { glyph:'🫘', maya:"Bol",                phonetic:"bol",                   spanish:"Frijoles",                cat:"comida" },
+    { glyph:'🍌', maya:"Ha'as",              phonetic:"ha-as",                 spanish:"Plátano",                 cat:"comida" },
+    { glyph:'🍯', maya:"Kaab",               phonetic:"ka-ab",                 spanish:"Miel",                    cat:"comida" },
+    { glyph:'🌮', maya:"Waj",                phonetic:"waj",                   spanish:"Tortilla / Pan",          cat:"comida" },
+    { glyph:'🥤', maya:"Uk'ul",              phonetic:"uk-ul",                 spanish:"Bebida",                  cat:"comida" },
+    { glyph:'🍫', maya:"Kakaw",              phonetic:"ka-kaw",                spanish:"Cacao / Chocolate",       cat:"comida" },
+    // Colores
+    { glyph:'🔴', maya:"Chak",               phonetic:"chak",                  spanish:"Rojo",                    cat:"colores" },
+    { glyph:'⚫', maya:"Ek'",                phonetic:"ek'",                   spanish:"Negro",                   cat:"colores" },
+    { glyph:'⚪', maya:"Sak",                phonetic:"sak",                   spanish:"Blanco",                  cat:"colores" },
+    { glyph:'🟡', maya:"K'an",               phonetic:"k'an",                  spanish:"Amarillo",                cat:"colores" },
+    { glyph:'🟢', maya:"Yax",                phonetic:"yash",                  spanish:"Verde / Azul",            cat:"colores" },
+    // Números
+    { glyph:'1️⃣', maya:"Jun",                phonetic:"jun",                   spanish:"Uno",                     cat:"numeros" },
+    { glyph:'2️⃣', maya:"Ka'",                phonetic:"ka'",                   spanish:"Dos",                     cat:"numeros" },
+    { glyph:'3️⃣', maya:"Óox",                phonetic:"o-osh",                 spanish:"Tres",                    cat:"numeros" },
+    { glyph:'4️⃣', maya:"Kan",                phonetic:"kan",                   spanish:"Cuatro",                  cat:"numeros" },
+    { glyph:'5️⃣', maya:"Ho'",                phonetic:"ho'",                   spanish:"Cinco",                   cat:"numeros" },
+    { glyph:'🔟', maya:"Lajun",              phonetic:"la-jun",                spanish:"Diez",                    cat:"numeros" },
+    { glyph:'🔢', maya:"Hunk'al",            phonetic:"hun-k'al",              spanish:"Veinte",                  cat:"numeros" },
+    // Sentimientos
+    { glyph:'😍', maya:"Ki'ichkelem",        phonetic:"ki-ich-ke-lem",         spanish:"Hermoso / Bonito",        cat:"sentimientos" },
+    { glyph:'😴', maya:"Wenel",              phonetic:"we-nel",                spanish:"Dormir",                  cat:"sentimientos" },
+    { glyph:'🏃', maya:"Xíimbal",            phonetic:"shi-im-bal",            spanish:"Caminar / Pasear",        cat:"sentimientos" },
+    { glyph:'❤️', maya:"In yóol",            phonetic:"in yo-ol",              spanish:"Mi corazón",              cat:"sentimientos" },
+    { glyph:'🌟', maya:"Chan",               phonetic:"chan",                  spanish:"Pequeño / Chico",         cat:"sentimientos" },
+    { glyph:'💪', maya:"Nojoch",             phonetic:"no-joch",               spanish:"Grande",                  cat:"sentimientos" },
+    { glyph:'🍽️', maya:"Ka'abet in janal",   phonetic:"ka-a-bet in ja-nal",   spanish:"Tengo hambre",            cat:"sentimientos" },
+  ];
+
+  function renderMayaDict(filter) {
+    const grid = document.getElementById('mayaDictGrid');
+    if (!grid) return;
+    const list = filter === 'all' ? mayaData : mayaData.filter(e => e.cat === filter);
+    grid.innerHTML = list.map(e => {
+      const safeWord = e.maya.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+      return `
+      <div class="maya-card fade-in" onclick="speakMaya(this.dataset.maya)" data-maya="${safeWord}">
+        <button class="maya-speak-btn" onclick="event.stopPropagation();speakMaya(this.parentElement.dataset.maya)" aria-label="Escuchar pronunciación">🔊</button>
+        <span class="maya-card-glyph">${e.glyph}</span>
+        <span class="maya-card-word">${e.maya}</span>
+        <span class="maya-card-phonetic">[${e.phonetic}]</span>
+        <span class="maya-card-spanish">${e.spanish}</span>
+        <span class="maya-card-cat">${e.cat}</span>
+      </div>`;
+    }).join('');
+    grid.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  }
+
+  function filterMaya(cat, btn) {
+    document.querySelectorAll('.maya-cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderMayaDict(cat);
+  }
+
+  function speakMaya(text) {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'es-MX';
+    utter.rate = 0.72;
+    utter.pitch = 1.1;
+    window.speechSynthesis.speak(utter);
+  }
+
+  // ══ MAYA QUIZ ══
+  let quizQs = [], quizIdx = 0, quizScore = 0;
+
+  function startMayaQuiz() {
+    quizScore = 0; quizIdx = 0;
+    quizQs = [...mayaData].sort(() => Math.random() - .5).slice(0, 10);
+    document.getElementById('mqStart').style.display = 'none';
+    document.getElementById('mqComplete').style.display = 'none';
+    document.getElementById('mqQuestionArea').style.display = 'block';
+    document.getElementById('mayaQuizWrapper').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    renderQuizQ();
+  }
+
+  function renderQuizQ() {
+    if (quizIdx >= quizQs.length) { endMayaQuiz(); return; }
+    const q = quizQs[quizIdx];
+    const total = quizQs.length;
+    document.getElementById('mqCounter').textContent = 'Pregunta ' + (quizIdx + 1) + ' / ' + total;
+    document.getElementById('mqFill').style.width = ((quizIdx / total) * 100) + '%';
+    document.getElementById('mqScore').textContent = quizScore + ' ⭐';
+    document.getElementById('mqWord').textContent = q.maya;
+    document.getElementById('mqHint').textContent = '¿Qué significa en español? (pronuncia: ' + q.phonetic + ')';
+    document.getElementById('mqFeedback').textContent = '';
+    document.getElementById('mqNextBtn').style.display = 'none';
+    const wrong = mayaData.filter(e => e !== q).sort(() => Math.random() - .5).slice(0, 3);
+    const opts = [q, ...wrong].sort(() => Math.random() - .5);
+    const container = document.getElementById('mqChoices');
+    container.innerHTML = '';
+    opts.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'mq-choice';
+      btn.textContent = opt.glyph + ' ' + opt.spanish;
+      btn.onclick = () => checkMayaQ(btn, opt, q);
+      container.appendChild(btn);
+    });
+  }
+
+  function checkMayaQ(btn, chosen, correct) {
+    document.querySelectorAll('.mq-choice').forEach(b => { b.disabled = true; });
+    const fb = document.getElementById('mqFeedback');
+    if (chosen === correct) {
+      btn.classList.add('correct');
+      quizScore++;
+      document.getElementById('mqScore').textContent = quizScore + ' ⭐';
+      fb.textContent = '✅ ¡Correcto! ' + correct.glyph + ' ' + correct.maya + ' = ' + correct.spanish;
+      fb.style.color = 'var(--teal-dark)';
+      playSuccess();
+    } else {
+      btn.classList.add('wrong');
+      document.querySelectorAll('.mq-choice').forEach(b => {
+        if (b.textContent.includes(correct.spanish)) b.classList.add('correct');
+      });
+      fb.textContent = '❌ Era: ' + correct.glyph + ' ' + correct.maya + ' = ' + correct.spanish;
+      fb.style.color = 'var(--coral)';
+    }
+    document.getElementById('mqNextBtn').style.display = 'block';
+  }
+
+  function nextQuizQ() { quizIdx++; renderQuizQ(); }
+
+  function endMayaQuiz() {
+    document.getElementById('mqQuestionArea').style.display = 'none';
+    document.getElementById('mqComplete').style.display = 'block';
+    document.getElementById('mqFill').style.width = '100%';
+    const pct = (quizScore / quizQs.length) * 100;
+    let emoji = '🌱', msg = '¡Sigue practicando! El maya es hermoso.';
+    if (pct >= 90) { emoji = '🏆🎉🦋'; msg = '¡Excelente! ¡Eres un experto en maya yucateco!'; launchConfetti(); }
+    else if (pct >= 70) { emoji = '⭐😊'; msg = '¡Muy bien! ¡Sigue practicando!'; }
+    else if (pct >= 50) { emoji = '💛'; msg = '¡Bien! Pero puedes mejorar.'; }
+    document.getElementById('mqCompleteEmoji').textContent = emoji;
+    document.getElementById('mqFinalScore').textContent = quizScore + '/' + quizQs.length + ' ⭐';
+    document.getElementById('mqFinalMsg').textContent = msg;
+  }
+
+  // Initialize dictionary on load
+  renderMayaDict('all');
 </script>
 </body>
 </html>
