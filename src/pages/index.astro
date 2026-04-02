@@ -2,112 +2,92 @@
 import Layout from '../layouts/Layout.astro';
 import ColorGame from '../components/ColorGame.tsx';
 import BubbleGame from '../components/BubbleGame.tsx';
+import NavbarIsland from '../components/NavbarIsland.tsx';
+import PricingCards from '../components/PricingCards.tsx';
+import FAQIsland from '../components/FAQIsland.tsx';
 ---
 
 <Layout title="Estancia Infantil Mis Pekes | Cancún">
 
-  <!-- ── WHATSAPP FLOATING BUTTON ── -->
-  <a
-    href="https://wa.me/5219982415799"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-transform hover:scale-110 flex items-center justify-center"
-    aria-label="Contactar por WhatsApp"
-  >
-    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.857L.057 23.882a.75.75 0 0 0 .918.919l6.105-1.474A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.717 9.717 0 0 1-4.964-1.36l-.356-.213-3.683.889.909-3.594-.233-.37A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
-    </svg>
-  </a>
+  <!-- NAVBAR -->
+  <NavbarIsland client:load />
 
-  <!-- ── NAVBAR ── -->
-  <nav class="bg-white border-b border-slate-100 sticky top-0 z-40 shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="flex items-center gap-2 text-xl font-extrabold text-slate-800 no-underline">
-        <span class="text-pekes-primary">Mis Pekes</span>
-        <span aria-hidden="true">🌻</span>
-      </a>
-      <div class="flex items-center gap-6">
-        <a href="#faq" class="text-slate-500 hover:text-pekes-primary text-sm font-semibold transition-colors hidden sm:block">Inscripciones</a>
-        <a href="#footer" class="text-slate-500 hover:text-pekes-primary text-sm font-semibold transition-colors hidden sm:block">Ubicación</a>
-        <a
-          href="https://wa.me/5219982415799"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors"
-        >
-          WhatsApp
-        </a>
-      </div>
+  <!-- HERO -->
+  <header id="inicio" class="relative overflow-hidden text-white text-center"
+    style="background: linear-gradient(135deg, #00d4b8 0%, #00b8a0 45%, #1a4d47 100%); padding: 6rem 1.5rem 7rem;">
+    <div class="hero-bubbles" aria-hidden="true">
+      <span class="bubble bubble-1"></span>
+      <span class="bubble bubble-2"></span>
+      <span class="bubble bubble-3"></span>
+      <span class="bubble bubble-4"></span>
+      <span class="bubble bubble-5"></span>
+      <span class="bubble bubble-6"></span>
+      <span class="star star-1">&#x2726;</span>
+      <span class="star star-2">&#x2726;</span>
+      <span class="star star-3">&#x2B50;</span>
     </div>
-  </nav>
-
-  <!-- ── HERO ── -->
-  <header
-    class="relative overflow-hidden text-white text-center"
-    style="background: linear-gradient(135deg, #00d4b8 0%, #00b8a0 50%, #1a4d47 100%); padding: 5rem 1.5rem 6rem;"
-  >
-    <!-- Decorative blobs -->
-    <div class="absolute top-[-50px] right-[-100px] w-72 h-72 rounded-full" style="background: rgba(255,255,255,0.05);"></div>
-    <div class="absolute bottom-[-80px] left-[-120px] w-64 h-64 rounded-full" style="background: rgba(255,255,255,0.05);"></div>
-
     <div class="max-w-2xl mx-auto relative z-10">
-      <p class="inline-block bg-white/20 border border-white/30 text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full mb-6">
-        ✨ Cancún · Región 91
+      <p class="inline-block bg-white/20 border border-white/30 text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 animate-fade-in">
+        &#x2728; Cancún · Región 91 · Desde 43 días de vida
       </p>
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-        Estancia Infantil
-        <br />
-        <span class="text-5xl md:text-6xl" style="background: linear-gradient(135deg, #fff 0%, #e8f5f2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-          Mis Pekes
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-5 animate-slide-up">
+        Estancia Infantil<br />
+        <span class="block mt-1"
+          style="background: linear-gradient(135deg, #fff 0%, #d4fff8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.15em;">
+          Mis Pekes &#x1F33B;
         </span>
       </h1>
-      <p class="text-xl font-semibold mb-3 opacity-95">"Creamos, Aprendemos y Crecemos Cada Día" 🌱</p>
-      <p class="text-sm leading-relaxed mb-8 opacity-85 max-w-lg mx-auto">
-        En Mis Pekes, cada niño es un pekeño universo de posibilidades. Ofrecemos cuidado seguro, afectuoso y estimulante para bebés y preescolares en el corazón de Cancún.
+      <p class="text-lg md:text-xl font-semibold mb-3 opacity-95 animate-fade-in-delay">
+        "Creamos, Aprendemos y Crecemos Cada Día &#x1F331;"
       </p>
-      <div class="flex gap-4 justify-center flex-wrap">
-        <a
-          href="https://wa.me/5219982415799"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bg-white font-semibold text-sm px-7 py-3 rounded-full transition-transform hover:scale-105 hover:shadow-lg"
-          style="color: #00b8a0;"
-        >
-          Inscripciones Abiertas
+      <p class="text-sm leading-relaxed mb-10 opacity-85 max-w-lg mx-auto animate-fade-in-delay">
+        En Mis Pekes, cada niño es un pekeño universo de posibilidades. Cuidado seguro,
+        afectuoso y estimulante para bebés y preescolares en el corazón de Cancún.
+      </p>
+      <div class="flex gap-4 justify-center flex-wrap animate-fade-in-delay2">
+        <a href="https://wa.me/5219982415799" target="_blank" rel="noopener noreferrer"
+          class="bg-white font-bold text-sm px-8 py-3.5 rounded-full transition-all hover:scale-105 hover:shadow-xl"
+          style="color: #00b8a0;">
+          &#x1F4AC; Inscripciones
         </a>
-        <a
-          href="#juegos"
-          class="bg-transparent border-2 border-white text-white font-semibold text-sm px-7 py-3 rounded-full transition-transform hover:scale-105"
-        >
-          Juegos Educativos
+        <a href="#paquetes"
+          class="bg-transparent border-2 border-white text-white font-bold text-sm px-8 py-3.5 rounded-full transition-all hover:bg-white/20 hover:scale-105">
+          Ver Paquetes &#x1F4CB;
         </a>
+      </div>
+      <div class="mt-14 flex justify-center animate-bounce" aria-hidden="true">
+        <div class="w-7 h-11 rounded-full border-2 border-white/50 flex justify-center pt-2">
+          <div class="w-1.5 h-2.5 bg-white/60 rounded-full scroll-dot"></div>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- ── QUICK INFO BAR ── -->
-  <div style="background: #1a4d47;" class="py-6 px-6">
+  <!-- QUICK INFO BAR -->
+  <div style="background: #1a4d47;" class="py-7 px-6">
     <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <div class="flex items-center gap-3 bg-white/10 border border-white/10 rounded-2xl px-5 py-4">
-        <span class="text-2xl" aria-hidden="true">🕐</span>
+      <div class="flex items-center gap-3 bg-white/10 border border-white/10 rounded-2xl px-5 py-4 hover:bg-white/15 transition-colors">
+        <span class="text-3xl" aria-hidden="true">&#x1F550;</span>
         <div>
           <p class="text-white/60 text-xs font-bold uppercase tracking-wider">Horario</p>
           <p class="text-white text-sm font-bold mt-0.5">Lun–Vie · 7:00 AM – 5:00 PM</p>
+          <p class="text-white/60 text-xs mt-0.5">Fines de semana disponibles</p>
         </div>
       </div>
-      <div class="flex items-center gap-3 bg-white/10 border border-white/10 rounded-2xl px-5 py-4">
-        <span class="text-2xl" aria-hidden="true">👶</span>
+      <div class="flex items-center gap-3 bg-white/10 border border-white/10 rounded-2xl px-5 py-4 hover:bg-white/15 transition-colors">
+        <span class="text-3xl" aria-hidden="true">&#x1F476;</span>
         <div>
           <p class="text-white/60 text-xs font-bold uppercase tracking-wider">Edades</p>
           <p class="text-white text-sm font-bold mt-0.5">43 días – 6 años</p>
+          <p class="text-white/60 text-xs mt-0.5">Lactantes y preescolares</p>
         </div>
       </div>
-      <div class="flex items-center gap-3 bg-white/10 border border-white/10 rounded-2xl px-5 py-4">
-        <span class="text-2xl" aria-hidden="true">📍</span>
+      <div class="flex items-center gap-3 bg-white/10 border border-white/10 rounded-2xl px-5 py-4 hover:bg-white/15 transition-colors">
+        <span class="text-3xl" aria-hidden="true">&#x1F4CD;</span>
         <div>
           <p class="text-white/60 text-xs font-bold uppercase tracking-wider">Ubicación</p>
           <p class="text-white text-sm font-bold mt-0.5">Región 91, Cancún Q.R.</p>
+          <p class="text-white/60 text-xs mt-0.5">C.P. 77516</p>
         </div>
       </div>
     </div>
@@ -115,185 +95,419 @@ import BubbleGame from '../components/BubbleGame.tsx';
 
   <main>
 
-    <!-- ── VALORES ── -->
+    <!-- VALORES / NOSOTROS -->
     <section id="nosotros" class="max-w-6xl mx-auto px-6 py-20">
-      <h2 class="text-3xl font-extrabold text-center text-slate-800 mb-12">Nuestra Filosofía de Cuidado</h2>
+      <div class="text-center mb-12">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+          style="background: rgba(0,184,160,0.1); color: #00b8a0;">Nuestra Filosofía</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800">Valores que nos Guían</h2>
+      </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-7 hover:-translate-y-1 transition-transform">
-          <span class="text-4xl" aria-hidden="true">🔒</span>
-          <h3 class="text-lg font-bold mt-4 mb-2" style="color: #00b8a0;">Seguridad</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">Bienestar integral. Espacios seguros, personal capacitado y protocolos de salud rigurosos.</p>
+        <div class="reveal-card bg-white rounded-3xl border border-slate-100 shadow-sm p-7 hover:-translate-y-2 transition-all duration-300 hover:shadow-lg">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-5" style="background: rgba(0,184,160,0.1);">&#x1F512;</div>
+          <h3 class="text-lg font-extrabold mb-2" style="color: #00b8a0;">Seguridad</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Espacios seguros, personal capacitado y protocolos de salud rigurosos para el bienestar integral.</p>
         </div>
-        <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-7 hover:-translate-y-1 transition-transform">
-          <span class="text-4xl" aria-hidden="true">💚</span>
-          <h3 class="text-lg font-bold mt-4 mb-2" style="color: #00b8a0;">Confianza</h3>
+        <div class="reveal-card bg-white rounded-3xl border border-slate-100 shadow-sm p-7 hover:-translate-y-2 transition-all duration-300 hover:shadow-lg" style="animation-delay:0.1s">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-5" style="background: rgba(0,184,160,0.1);">&#x1F49A;</div>
+          <h3 class="text-lg font-extrabold mb-2" style="color: #00b8a0;">Confianza</h3>
           <p class="text-slate-500 text-sm leading-relaxed">Comunicación transparente con padres. Reportes diarios y acceso a nuestros espacios.</p>
         </div>
-        <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-7 hover:-translate-y-1 transition-transform">
-          <span class="text-4xl" aria-hidden="true">🫶</span>
-          <h3 class="text-lg font-bold mt-4 mb-2" style="color: #00b8a0;">Empatía</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">Atención personalizada. Respetamos el ritmo y necesidades particulares de cada niño.</p>
+        <div class="reveal-card bg-white rounded-3xl border border-slate-100 shadow-sm p-7 hover:-translate-y-2 transition-all duration-300 hover:shadow-lg" style="animation-delay:0.2s">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-5" style="background: rgba(0,184,160,0.1);">&#x1FAF6;</div>
+          <h3 class="text-lg font-extrabold mb-2" style="color: #00b8a0;">Empatía</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Atención personalizada. Respetamos el ritmo y necesidades únicas de cada niño.</p>
         </div>
-        <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-7 hover:-translate-y-1 transition-transform">
-          <span class="text-4xl" aria-hidden="true">🌟</span>
-          <h3 class="text-lg font-bold mt-4 mb-2" style="color: #00b8a0;">Compromiso</h3>
+        <div class="reveal-card bg-white rounded-3xl border border-slate-100 shadow-sm p-7 hover:-translate-y-2 transition-all duration-300 hover:shadow-lg" style="animation-delay:0.3s">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-5" style="background: rgba(0,184,160,0.1);">&#x1F31F;</div>
+          <h3 class="text-lg font-extrabold mb-2" style="color: #00b8a0;">Compromiso</h3>
           <p class="text-slate-500 text-sm leading-relaxed">Desarrollo integral. Estimulación temprana con metodologías educativas comprobadas.</p>
         </div>
       </div>
     </section>
 
-    <!-- ── SERVICIOS ── -->
+    <!-- SERVICIOS -->
     <section id="servicios" class="bg-white py-20 px-6">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-extrabold text-center text-slate-800 mb-12">Nuestros Servicios</h2>
+        <div class="text-center mb-12">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+            style="background: rgba(0,184,160,0.1); color: #00b8a0;">Lo que ofrecemos</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800">Nuestros Servicios</h2>
+        </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Nutrición -->
-          <div class="bg-pekes-cream rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
-            <div class="h-28 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #ffd6a5, #ffb88c);">🍽️</div>
-            <div class="p-5">
-              <h3 class="font-bold text-base mb-2" style="color: #ff8c42;">Nutrición Balanceada</h3>
-              <p class="text-slate-500 text-sm leading-relaxed">Menús diseñados por nutricionista. Respetamos alergias y preferencias dietéticas con recetas caseras.</p>
+          <div class="reveal-card bg-pekes-cream rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:-translate-y-2 hover:shadow-lg transition-all duration-300">
+            <div class="h-32 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #ffd6a5, #ffb88c);">&#x1F37D;&#xFE0F;</div>
+            <div class="p-6">
+              <h3 class="font-extrabold text-base mb-2" style="color: #ff8c42;">Nutrición Balanceada</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">Menús nutritivos con recetas caseras. Respetamos alergias y necesidades dietéticas.</p>
             </div>
           </div>
-          <!-- Educativo -->
-          <div class="bg-pekes-cream rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
-            <div class="h-28 flex items-center justify-center text-5xl text-white" style="background: linear-gradient(135deg, #a8dadc, #457b9d);">📚</div>
-            <div class="p-5">
-              <h3 class="font-bold text-base mb-2" style="color: #457b9d;">Programa Educativo</h3>
+          <div class="reveal-card bg-pekes-cream rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:-translate-y-2 hover:shadow-lg transition-all duration-300" style="animation-delay:0.1s">
+            <div class="h-32 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #a8dadc, #457b9d);">&#x1F4DA;</div>
+            <div class="p-6">
+              <h3 class="font-extrabold text-base mb-2" style="color: #457b9d;">Programa Educativo</h3>
               <p class="text-slate-500 text-sm leading-relaxed">Estimulación temprana estructurada. Desarrollo de lenguaje, motricidad y habilidades cognitivas.</p>
             </div>
           </div>
-          <!-- Actividad Física -->
-          <div class="bg-pekes-cream rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
-            <div class="h-28 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #c1ffa9, #7bc043);">⚽</div>
-            <div class="p-5">
-              <h3 class="font-bold text-base mb-2" style="color: #7bc043;">Actividad Física</h3>
-              <p class="text-slate-500 text-sm leading-relaxed">Juego libre y actividades psicomotrices. Espacios seguros para correr, trepar y explorar.</p>
+          <div class="reveal-card bg-pekes-cream rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:-translate-y-2 hover:shadow-lg transition-all duration-300" style="animation-delay:0.2s">
+            <div class="h-32 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #c1ffa9, #7bc043);">&#x26BD;</div>
+            <div class="p-6">
+              <h3 class="font-extrabold text-base mb-2" style="color: #7bc043;">Actividad Física</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">Juego libre y psicomotricidad. Espacios seguros para correr, trepar y explorar.</p>
             </div>
           </div>
-          <!-- Expresión Creativa -->
-          <div class="bg-pekes-cream rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:-translate-y-1 transition-transform">
-            <div class="h-28 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #ffc6ff, #ff6ec7);">🎨</div>
-            <div class="p-5">
-              <h3 class="font-bold text-base mb-2" style="color: #ff6ec7;">Expresión Creativa</h3>
-              <p class="text-slate-500 text-sm leading-relaxed">Arte, música y expresión. Fomentamos la creatividad sin límites en un ambiente seguro.</p>
+          <div class="reveal-card bg-pekes-cream rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:-translate-y-2 hover:shadow-lg transition-all duration-300" style="animation-delay:0.3s">
+            <div class="h-32 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #ffc6ff, #ff6ec7);">&#x1F3A8;</div>
+            <div class="p-6">
+              <h3 class="font-extrabold text-base mb-2" style="color: #ff6ec7;">Expresión Creativa</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">Arte, música y expresión libre. Fomentamos la creatividad sin límites.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── ZONA INTERACTIVA ── -->
-    <section id="juegos" class="max-w-6xl mx-auto px-6 py-20">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-extrabold text-slate-800 mb-3">Zona de Aprendizaje Interactivo</h2>
-        <p class="text-slate-500 text-sm max-w-md mx-auto">Minijuegos educativos que estimulan el desarrollo cognitivo y motor</p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <div class="flex items-center gap-3 mb-3 px-1">
-            <span class="text-3xl" aria-hidden="true">🫧</span>
-            <div>
-              <h3 class="font-bold text-slate-800">Atrapa Burbujas</h3>
-              <p class="text-slate-500 text-xs">Coordinación motriz y velocidad visual</p>
-            </div>
-          </div>
-          <BubbleGame client:visible />
+    <!-- PAQUETES -->
+    <section id="paquetes" style="background: #f8faf9;" class="py-20 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+            style="background: rgba(0,184,160,0.1); color: #00b8a0;">Planes de cuidado</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-3">Elige el Paquete Ideal</h2>
+          <p class="text-slate-500 text-sm max-w-md mx-auto">Todos los paquetes incluyen cuidado, enseñanza, educación y pedagogía. Elige el que mejor se adapte a tu familia.</p>
         </div>
-        <div>
-          <div class="flex items-center gap-3 mb-3 px-1">
-            <span class="text-3xl" aria-hidden="true">🌈</span>
-            <div>
-              <h3 class="font-bold text-slate-800">Aprende Colores</h3>
-              <p class="text-slate-500 text-xs">Reconocimiento visual y asociación cognitiva</p>
+        <PricingCards client:visible />
+        <p class="text-center text-xs text-slate-400 mt-8">
+          &#x1F4A1; Precios y disponibilidad confirmados al inscribirse · Bebida/leche/fórmula: responsabilidad del tutor
+        </p>
+      </div>
+    </section>
+
+    <!-- JUEGOS -->
+    <section id="juegos" class="bg-white py-20 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+            style="background: rgba(0,184,160,0.1); color: #00b8a0;">¡A jugar!</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-3">Zona de Aprendizaje Interactivo</h2>
+          <p class="text-slate-500 text-sm max-w-md mx-auto">Minijuegos educativos que estimulan el desarrollo cognitivo y la coordinación motriz</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="reveal-card">
+            <div class="flex items-center gap-3 mb-4 px-1">
+              <span class="text-3xl" aria-hidden="true">&#x1FAE7;</span>
+              <div>
+                <h3 class="font-extrabold text-slate-800">Atrapa Burbujas</h3>
+                <p class="text-slate-500 text-xs">Coordinación motriz y velocidad visual</p>
+              </div>
             </div>
+            <BubbleGame client:visible />
           </div>
-          <ColorGame client:visible />
+          <div class="reveal-card">
+            <div class="flex items-center gap-3 mb-4 px-1">
+              <span class="text-3xl" aria-hidden="true">&#x1F308;</span>
+              <div>
+                <h3 class="font-extrabold text-slate-800">Aprende Colores</h3>
+                <p class="text-slate-500 text-xs">Reconocimiento visual y asociación cognitiva</p>
+              </div>
+            </div>
+            <ColorGame client:visible />
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ── MISIÓN Y VISIÓN ── -->
-    <section class="bg-white py-20 px-6">
-      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
-        <div class="rounded-2xl border border-slate-100 shadow-sm p-8" style="background: linear-gradient(135deg, #f0fdf9, #e6faf6);">
-          <h3 class="text-xl font-extrabold mb-3" style="color: #00b8a0;">Misión</h3>
-          <p class="text-slate-600 leading-relaxed text-sm">Brindar un entorno seguro, afectuoso y estimulante donde cada niño pueda desarrollar sus capacidades cognitivas, emocionales y físicas. Somos el apoyo fundamental de las familias trabajadoras de Cancún.</p>
+    <!-- MISIÓN Y VISIÓN -->
+    <section style="background: #f8faf9;" class="py-20 px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800">Misión y Visión</h2>
         </div>
-        <div class="rounded-2xl border border-slate-100 shadow-sm p-8" style="background: linear-gradient(135deg, #f0f4ff, #e8edfa);">
-          <h3 class="text-xl font-extrabold mb-3 text-slate-700">Visión</h3>
-          <p class="text-slate-600 leading-relaxed text-sm">Consolidarnos como la estancia infantil líder en la Región 91, reconocidos por nuestra excelencia educativa, calidez humana e innovación constante en técnicas de estimulación temprana.</p>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="reveal-card rounded-3xl p-8 shadow-sm"
+            style="background: linear-gradient(135deg, #f0fdf9, #e0faf4); border: 1px solid rgba(0,184,160,0.15);">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background: rgba(0,184,160,0.15);">&#x1F3AF;</div>
+            <h3 class="text-xl font-extrabold mb-3" style="color: #00b8a0;">Misión</h3>
+            <p class="text-slate-600 leading-relaxed text-sm">Brindar un entorno seguro, afectuoso y estimulante donde cada niño pueda desarrollar sus capacidades cognitivas, emocionales y físicas. Somos el apoyo fundamental de las familias trabajadoras de Cancún.</p>
+          </div>
+          <div class="reveal-card rounded-3xl p-8 shadow-sm"
+            style="background: linear-gradient(135deg, #f0f4ff, #e8edfa); border: 1px solid rgba(69,123,157,0.15);">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background: rgba(69,123,157,0.12);">&#x1F52D;</div>
+            <h3 class="text-xl font-extrabold mb-3 text-slate-700">Visión</h3>
+            <p class="text-slate-600 leading-relaxed text-sm">Consolidarnos como la estancia infantil líder en la Región 91, reconocidos por nuestra excelencia educativa, calidez humana e innovación constante en técnicas de estimulación temprana.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ── FAQ ── -->
-    <section id="faq" class="py-20 px-6" style="background: #f8faf9;">
+    <!-- FAQ -->
+    <section id="faq" class="bg-white py-20 px-6">
       <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-extrabold text-center text-slate-800 mb-10">Preguntas Frecuentes</h2>
-        <div class="space-y-3">
-          <details class="bg-white border border-slate-100 rounded-2xl shadow-sm px-6 py-5 cursor-pointer group">
-            <summary class="font-bold text-slate-800 select-none list-none flex justify-between items-center">
-              ¿Cuáles son los requisitos de inscripción?
-              <span class="text-pekes-primary text-xl transition-transform group-open:rotate-45" aria-hidden="true">+</span>
-            </summary>
-            <p class="mt-4 text-slate-500 text-sm leading-relaxed">Se requiere: Acta de nacimiento, cartilla de vacunación actualizada, comprobante de domicilio, datos de contacto de emergencia y datos médicos relevantes (alergias, medicamentos).</p>
-          </details>
-          <details class="bg-white border border-slate-100 rounded-2xl shadow-sm px-6 py-5 cursor-pointer group">
-            <summary class="font-bold text-slate-800 select-none list-none flex justify-between items-center">
-              ¿Qué edades atienden?
-              <span class="text-pekes-primary text-xl transition-transform group-open:rotate-45" aria-hidden="true">+</span>
-            </summary>
-            <p class="mt-4 text-slate-500 text-sm leading-relaxed">Recibimos niños desde 43 días de nacidos (lactantes) hasta 6 años (preescolar). Contamos con aulas separadas por etapa de desarrollo.</p>
-          </details>
-          <details class="bg-white border border-slate-100 rounded-2xl shadow-sm px-6 py-5 cursor-pointer group">
-            <summary class="font-bold text-slate-800 select-none list-none flex justify-between items-center">
-              ¿Cuál es el horario de atención?
-              <span class="text-pekes-primary text-xl transition-transform group-open:rotate-45" aria-hidden="true">+</span>
-            </summary>
-            <p class="mt-4 text-slate-500 text-sm leading-relaxed">Lunes a viernes, 7:00 AM a 5:00 PM. Contamos con servicios de horario extendido previa solicitud.</p>
-          </details>
-          <details class="bg-white border border-slate-100 rounded-2xl shadow-sm px-6 py-5 cursor-pointer group">
-            <summary class="font-bold text-slate-800 select-none list-none flex justify-between items-center">
-              ¿Cómo es la comunicación con los padres?
-              <span class="text-pekes-primary text-xl transition-transform group-open:rotate-45" aria-hidden="true">+</span>
-            </summary>
-            <p class="mt-4 text-slate-500 text-sm leading-relaxed">Reportes diarios vía WhatsApp y fotos de las actividades. Reuniones mensuales con cuidadores y boletín educativo trimestral.</p>
-          </details>
+        <div class="text-center mb-12">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+            style="background: rgba(0,184,160,0.1); color: #00b8a0;">Resolvemos tus dudas</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800">Preguntas Frecuentes</h2>
+        </div>
+        <FAQIsland client:visible />
+      </div>
+    </section>
+
+    <!-- TIENDA PREVIEW -->
+    <section id="tienda" style="background: #f8faf9;" class="py-20 px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+            style="background: rgba(255,140,66,0.12); color: #ff8c42;">Tienda</span>
+          <h2 class="text-3xl font-extrabold text-slate-800 mb-3">Artículos Disponibles</h2>
+          <p class="text-slate-500 text-sm">Productos de primera necesidad disponibles para compra en el Portal</p>
+        </div>
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-5 mb-8">
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 hover:-translate-y-1 hover:shadow-md transition-all text-center">
+            <div class="text-4xl mb-3">&#x1F37C;</div>
+            <h4 class="font-bold text-slate-800 text-sm mb-1">Biberones</h4>
+            <p class="text-xs text-slate-500">Disponibles en tienda</p>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 hover:-translate-y-1 hover:shadow-md transition-all text-center">
+            <div class="text-4xl mb-3">&#x1F9F7;</div>
+            <h4 class="font-bold text-slate-800 text-sm mb-1">Pañales</h4>
+            <p class="text-xs font-semibold" style="color:#00b8a0;">$450</p>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 hover:-translate-y-1 hover:shadow-md transition-all text-center">
+            <div class="text-4xl mb-3">&#x1F9FB;</div>
+            <h4 class="font-bold text-slate-800 text-sm mb-1">Toallitas</h4>
+            <p class="text-xs font-semibold" style="color:#00b8a0;">$60</p>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 hover:-translate-y-1 hover:shadow-md transition-all text-center">
+            <div class="text-4xl mb-3">&#x1F455;</div>
+            <h4 class="font-bold text-slate-800 text-sm mb-1">Ropa de Emergencia</h4>
+            <p class="text-xs text-slate-500">Ropa interior de emergencia</p>
+          </div>
+        </div>
+        <div class="text-center">
+          <a href="/login" class="inline-block font-bold text-sm px-8 py-3.5 rounded-full transition-all hover:scale-105 hover:shadow-lg"
+            style="background: #00b8a0; color: #fff;">
+            Ver tienda completa &#x2192;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPA / CONTACTO -->
+    <section id="contacto" class="bg-white py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+            style="background: rgba(0,184,160,0.1); color: #00b8a0;">¿Cómo llegar?</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800">Encuéntranos</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+          <div class="rounded-3xl p-8 shadow-sm"
+            style="background: linear-gradient(135deg, #f0fdf9, #e6faf6); border: 1px solid rgba(0,184,160,0.15);">
+            <h3 class="text-xl font-extrabold mb-6" style="color: #00b8a0;">&#x1F4CD; Dirección</h3>
+            <div class="space-y-4 text-sm text-slate-600">
+              <div class="flex gap-3">
+                <span class="text-lg flex-shrink-0">&#x1F3E0;</span>
+                <div>
+                  <p class="font-bold text-slate-800">Región 91, Manzana 48, Lote 8</p>
+                  <p>Calle 38 Pte., C.P. 77516</p>
+                  <p>Cancún, Quintana Roo</p>
+                </div>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-lg flex-shrink-0">&#x1F4DE;</span>
+                <div>
+                  <p class="font-bold text-slate-800">Teléfono / WhatsApp</p>
+                  <a href="https://wa.me/5219982415799" style="color:#00b8a0;">+52 998 241 5799</a>
+                </div>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-lg flex-shrink-0">&#x1F550;</span>
+                <div>
+                  <p class="font-bold text-slate-800">Horario</p>
+                  <p>Lunes a Viernes: 7:00 AM – 5:00 PM</p>
+                  <p class="text-xs text-slate-400 mt-1">Fines de semana: disponibles con costo extra</p>
+                </div>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-lg flex-shrink-0">&#x1F44D;</span>
+                <div>
+                  <p class="font-bold text-slate-800">Facebook</p>
+                  <a href="https://www.facebook.com/p/Estancia-Infantil-MIS-PEKES-100063553933907/"
+                    target="_blank" rel="noopener noreferrer"
+                    class="text-xs" style="color:#457b9d;">
+                    Estancia Infantil MIS PEKES
+                  </a>
+                </div>
+              </div>
+            </div>
+            <a href="https://wa.me/5219982415799" target="_blank" rel="noopener noreferrer"
+              class="mt-8 flex items-center justify-center gap-2 w-full font-bold text-sm py-3 rounded-2xl transition-all hover:scale-105"
+              style="background: #25d366; color: #fff;">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.857L.057 23.882a.75.75 0 0 0 .918.919l6.105-1.474A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.717 9.717 0 0 1-4.964-1.36l-.356-.213-3.683.889.909-3.594-.233-.37A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+              </svg>
+              Enviar WhatsApp
+            </a>
+          </div>
+          <div class="rounded-3xl overflow-hidden shadow-sm" style="border: 1px solid rgba(0,0,0,0.06); height: 380px;">
+            <iframe
+              title="Mapa Estancia Infantil Mis Pekes"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.1!2d-86.8515!3d21.1619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zUmVnacOzbiA5MSwgTWFuemFuYSA0OCwgTG90ZSA4LCBDYWxsZSAzOCBQdGUuLCBDLlAuIDc3NTE2LCBDYW5jw7puLCBRLlIu!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx"
+              width="100%"
+              height="100%"
+              style="border: 0;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ── FOOTER ── -->
+  <!-- FOOTER -->
   <footer id="footer" style="background: #1a4d47;" class="text-white py-14 px-6">
     <div class="max-w-6xl mx-auto">
+      <div class="mb-10 text-center">
+        <span class="text-3xl font-extrabold tracking-tight" style="color: #00d4b8;">Mis Pekes &#x1F33B;</span>
+        <p class="text-white/60 text-sm mt-2 max-w-sm mx-auto">Tu hogar lejos de casa. Cuidado con amor en Cancún.</p>
+      </div>
       <div class="grid sm:grid-cols-3 gap-8 mb-10 text-sm">
         <div>
-          <h4 class="font-bold text-base mb-4">Contacto</h4>
-          <p class="opacity-80 mb-2">📞 +52 998 241 5799</p>
-          <p class="opacity-70 leading-relaxed">Lunes a Viernes<br>7:00 AM – 5:00 PM</p>
+          <h4 class="font-extrabold text-base mb-4" style="color: #00d4b8;">Contacto</h4>
+          <p class="opacity-80 mb-2">&#x1F4DE; +52 998 241 5799</p>
+          <a href="https://wa.me/5219982415799" class="opacity-80 hover:opacity-100 block mb-1 transition-opacity"
+            target="_blank" rel="noopener noreferrer">&#x1F4AC; WhatsApp Directo</a>
+          <p class="opacity-60 leading-relaxed mt-2">Lunes a Viernes<br />7:00 AM – 5:00 PM</p>
         </div>
         <div>
-          <h4 class="font-bold text-base mb-4">Ubicación</h4>
-          <p class="opacity-70 leading-relaxed">Región 91, Manzana 48, Lote 8<br>Calle 38 Pte., C.P. 77516<br>Cancún, Quintana Roo</p>
+          <h4 class="font-extrabold text-base mb-4" style="color: #00d4b8;">Ubicación</h4>
+          <p class="opacity-70 leading-relaxed">Región 91, Manzana 48, Lote 8<br />Calle 38 Pte., C.P. 77516<br />Cancún, Quintana Roo</p>
         </div>
         <div>
-          <h4 class="font-bold text-base mb-4">Síguenos</h4>
-          <a href="https://www.facebook.com/p/Estancia-Infantil-MIS-PEKES-100063553933907/" target="_blank" rel="noopener noreferrer" class="block opacity-80 hover:opacity-100 transition-opacity mb-2">
-            👍 Facebook Oficial
+          <h4 class="font-extrabold text-base mb-4" style="color: #00d4b8;">Síguenos</h4>
+          <a href="https://www.facebook.com/p/Estancia-Infantil-MIS-PEKES-100063553933907/"
+            target="_blank" rel="noopener noreferrer"
+            class="block opacity-80 hover:opacity-100 transition-opacity mb-3">
+            &#x1F44D; Facebook Oficial
           </a>
-          <a href="https://wa.me/5219982415799" target="_blank" rel="noopener noreferrer" class="block opacity-80 hover:opacity-100 transition-opacity">
-            💬 WhatsApp Directo
+          <a href="https://wa.me/5219982415799" target="_blank" rel="noopener noreferrer"
+            class="block opacity-80 hover:opacity-100 transition-opacity">
+            &#x1F4AC; WhatsApp Directo
           </a>
         </div>
       </div>
-      <div class="border-t pt-8 text-center" style="border-color: rgba(255,255,255,0.15);">
+      <div class="border-t pt-8 text-center" style="border-color: rgba(255,255,255,0.12);">
         <p class="text-xs opacity-60">© 2026 Estancia Infantil "Mis Pekes". Todos los derechos reservados.</p>
-        <p class="text-xs mt-1 opacity-50">Construido con Astro + SolidJS · Optimizado para máximo rendimiento</p>
+        <p class="text-xs mt-1 opacity-40">Construido con Astro + SolidJS · Optimizado para máximo rendimiento</p>
       </div>
     </div>
   </footer>
+
+  <!-- WHATSAPP FAB -->
+  <a href="https://wa.me/5219982415799" target="_blank" rel="noopener noreferrer"
+    class="fixed bottom-6 right-6 z-50 text-white p-4 rounded-full shadow-2xl transition-all hover:scale-110 flex items-center justify-center"
+    style="background: #25d366;"
+    aria-label="Contactar por WhatsApp">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.857L.057 23.882a.75.75 0 0 0 .918.919l6.105-1.474A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.717 9.717 0 0 1-4.964-1.36l-.356-.213-3.683.889.909-3.594-.233-.37A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+    </svg>
+  </a>
+
+  <!-- SCROLL-TO-TOP -->
+  <button id="scroll-top-btn"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    class="fixed bottom-24 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all opacity-0 pointer-events-none"
+    style="background: #1a4d47; color: #fff; font-size: 1.2rem;"
+    aria-label="Volver arriba">
+    &#x2191;
+  </button>
+
+  <style is:global>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes floatBubble {
+      0%   { transform: translateY(0) scale(1);      opacity: 0.15; }
+      50%  { transform: translateY(-40px) scale(1.05); opacity: 0.25; }
+      100% { transform: translateY(0) scale(1);      opacity: 0.15; }
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50%       { opacity: 0.8; transform: scale(1.4); }
+    }
+    @keyframes scrollDot {
+      0%   { transform: translateY(0);    opacity: 1; }
+      80%  { transform: translateY(10px); opacity: 0; }
+      100% { transform: translateY(0);    opacity: 0; }
+    }
+
+    .animate-fade-in        { animation: fadeIn 0.8s ease both; }
+    .animate-fade-in-delay  { animation: fadeIn 1s ease 0.3s both; }
+    .animate-fade-in-delay2 { animation: fadeIn 1s ease 0.5s both; }
+    .animate-slide-up       { animation: slideUp 0.9s ease 0.1s both; }
+
+    .hero-bubbles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      animation: floatBubble linear infinite;
+    }
+    .bubble-1 { width:180px; height:180px; top:5%;  left:8%;  animation-duration:7s;  animation-delay:0s; }
+    .bubble-2 { width:110px; height:110px; top:60%; left:80%; animation-duration:9s;  animation-delay:1s; }
+    .bubble-3 { width:80px;  height:80px;  top:20%; left:70%; animation-duration:6s;  animation-delay:2s; }
+    .bubble-4 { width:60px;  height:60px;  top:75%; left:15%; animation-duration:8s;  animation-delay:0.5s; }
+    .bubble-5 { width:140px; height:140px; top:40%; left:45%; animation-duration:11s; animation-delay:3s; }
+    .bubble-6 { width:50px;  height:50px;  top:10%; left:50%; animation-duration:5s;  animation-delay:1.5s; }
+    .star {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(255,255,255,0.5);
+      animation: twinkle ease-in-out infinite;
+    }
+    .star-1 { top:15%; left:20%; animation-duration:3s;   animation-delay:0s; }
+    .star-2 { top:70%; left:60%; animation-duration:4s;   animation-delay:1s;   font-size:14px; }
+    .star-3 { top:30%; left:88%; animation-duration:2.5s; animation-delay:0.8s; font-size:18px; }
+
+    .scroll-dot { animation: scrollDot 1.6s ease-in-out infinite; }
+
+    .reveal-card {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #scroll-top-btn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll(".reveal-card").forEach((el) => observer.observe(el));
+
+    const btn = document.getElementById("scroll-top-btn");
+    window.addEventListener("scroll", () => {
+      if (btn) btn.classList.toggle("show", window.scrollY > 400);
+    }, { passive: true });
+  </script>
 
 </Layout>
