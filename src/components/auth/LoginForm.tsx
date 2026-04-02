@@ -1,4 +1,12 @@
-import { createSignal, onMount } from 'solid-js';
+import { createSignal } from 'solid-js';
+
+async function hashPIN(pin: string): Promise<string> {
+  const data = new TextEncoder().encode(pin);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hashBuffer))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
+}
 
 export default function LoginForm() {
   const [email, setEmail] = createSignal('');
@@ -6,13 +14,14 @@ export default function LoginForm() {
   const [error, setError] = createSignal('');
   const [loading, setLoading] = createSignal(false);
 
-  const handleSubmit = (e: Event) => {
+  const handleSubmit = async (e: Event) => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
+    const pinHash = await hashPIN(pin());
     const users = JSON.parse(localStorage.getItem('pekes_users') || '[]');
-    const user = users.find((u: any) => u.email === email() && u.pin === pin());
+    const user = users.find((u: any) => u.email === email() && u.pinHash === pinHash);
     if (user) {
       localStorage.setItem('pekes_session', email());
       window.location.href = '/dashboard/';

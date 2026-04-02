@@ -1,5 +1,13 @@
 import { createSignal } from 'solid-js';
 
+async function hashPIN(pin: string): Promise<string> {
+  const data = new TextEncoder().encode(pin);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hashBuffer))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
+}
+
 export default function RegisterForm() {
   const [nombre, setNombre] = createSignal('');
   const [email, setEmail] = createSignal('');
@@ -12,7 +20,7 @@ export default function RegisterForm() {
 
   const inputClass = 'border border-slate-200 rounded-xl px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-pekes-primary text-slate-800';
 
-  const handleSubmit = (e: Event) => {
+  const handleSubmit = async (e: Event) => {
     e.preventDefault();
     setError('');
 
@@ -36,7 +44,8 @@ export default function RegisterForm() {
     }
 
     setLoading(true);
-    users.push({ nombre: nombre(), email: email(), telefono: telefono(), relacion: relacion(), pin: pin() });
+    const pinHash = await hashPIN(pin());
+    users.push({ nombre: nombre(), email: email(), telefono: telefono(), relacion: relacion(), pinHash });
     localStorage.setItem('pekes_users', JSON.stringify(users));
     localStorage.setItem('pekes_session', email());
     window.location.href = '/dashboard/';

@@ -23,7 +23,7 @@ interface Order {
 }
 
 const products: Product[] = [
-  { id: 'panales', name: 'Pañales (paquete)', price: 450, emoji: '🍼', desc: 'Paquete de pañales para bebé' },
+  { id: 'panales', name: 'Pañales (paquete)', price: 450, emoji: '🧷', desc: 'Paquete de pañales para bebé' },
   { id: 'toallitas', name: 'Toallitas húmedas', price: 60, emoji: '🧻', desc: 'Toallitas húmedas para bebé' },
   { id: 'ropa', name: 'Ropa Interior de Emergencia', price: null, emoji: '👕', desc: 'Consultar talla y precio' },
   { id: 'biberon', name: 'Biberón', price: null, emoji: '🍶', desc: 'Consultar precio' },
