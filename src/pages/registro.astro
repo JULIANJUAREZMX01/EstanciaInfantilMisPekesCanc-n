@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RegisterForm from '../components/auth/RegisterForm.tsx';
+---
+<Layout title="Registro – Mis Pekes">
+  <div class="min-h-screen bg-gradient-to-br from-pekes-cream to-pekes-light/20 flex flex-col items-center justify-center px-4 py-12">
+    <div class="mb-8 text-center">
+      <a href="/" class="inline-flex items-center gap-3">
+        <span class="text-4xl">🧸</span>
+        <span class="text-3xl font-extrabold text-pekes-dark">Mis Pekes</span>
+      </a>
+      <p class="mt-2 text-slate-500 text-sm">Crea tu cuenta de tutor</p>
+    </div>
+    <RegisterForm client:load />
+    <div class="mt-6 text-center text-sm text-slate-500">
+      ¿Ya tienes cuenta?
+      <a href="/login" class="text-pekes-primary font-semibold hover:underline ml-1">Inicia sesión</a>
+    </div>
+  </div>
+</Layout>
