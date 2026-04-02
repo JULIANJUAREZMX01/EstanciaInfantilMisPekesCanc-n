@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BubbleGame from '../components/islands/BubbleGame.astro';
+import ColorGame from '../components/islands/ColorGame.astro';
+---
+
+<Layout title="Estancia Infantil Mis Pekes | Cancún">
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <section class="text-center mb-20">
+            <h1 class="text-5xl font-extrabold text-blue-900 mb-6">Estancia Infantil "Mis Pekes"</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">Creamos, Aprendemos y Crecemos Cada Día.</p>
+            <div class="flex justify-center gap-4">
+                <a href="#contacto" class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold hover:bg-blue-700 transition">Inscripciones</a>
+                <a href="#juegos" class="bg-white text-blue-600 border-2 border-blue-600 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition">Zona Interactiva</a>
+            </div>
+        </section>
+
+        <section id="juegos" class="mb-20">
+            <h2 class="text-3xl font-bold text-center text-blue-900 mb-10">Zona de Aprendizaje Interactivo</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <BubbleGame />
+                <ColorGame />
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-20 pt-8 border-t border-gray-200">
+            <p>Región 91, Manzana 48, Lote 8, Calle 38 Pte., C.P. 77516, Cancún, Q.R.</p>
+            <p class="mt-2">Desarrollado con Astro + Rust WASM</p>
+        </footer>
+    </main>
+</Layout>
