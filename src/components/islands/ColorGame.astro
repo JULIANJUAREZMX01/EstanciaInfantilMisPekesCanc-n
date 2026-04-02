@@ -1,0 +1,59 @@
+---
+// Server-side execution (SSG)
+const colors = [
+    { id: 'red', name: 'Rojo', hex: '#ef4444' },
+    { id: 'blue', name: 'Azul', hex: '#3b82f6' },
+    { id: 'green', name: 'Verde', hex: '#22c55e' },
+    { id: 'yellow', name: 'Amarillo', hex: '#eab308' }
+];
+---
+
+<div class="color-game-island bg-white p-6 rounded-2xl shadow-lg border border-blue-100 flex flex-col h-96">
+    <h3 class="font-bold text-xl text-blue-700 mb-4">Aprende los Colores</h3>
+
+    <div id="color-display" class="flex-1 rounded-xl transition-colors duration-500 flex items-center justify-center border border-gray-200 mb-6 bg-red-500">
+        <h2 id="color-name" class="text-5xl font-black text-white uppercase tracking-widest drop-shadow-md">ROJO</h2>
+    </div>
+
+    <div class="grid grid-cols-4 gap-4">
+        {colors.map((color) => (
+            <button
+                class="color-btn h-16 rounded-xl shadow-md transition-transform hover:scale-105 active:scale-95"
+                style={`background-color: ${color.hex}`}
+                data-hex={color.hex}
+                data-name={color.name}
+                aria-label={`Seleccionar color ${color.name}`}
+            ></button>
+        ))}
+    </div>
+</div>
+
+<script>
+    // Client-side execution (Island)
+    class ColorGame {
+        constructor(container) {
+            this.container = container;
+            this.display = container.querySelector('#color-display');
+            this.nameLabel = container.querySelector('#color-name');
+            this.buttons = container.querySelectorAll('.color-btn');
+            this.init();
+        }
+
+        init() {
+            this.buttons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const hex = e.target.getAttribute('data-hex');
+                    const name = e.target.getAttribute('data-name');
+
+                    this.display.style.backgroundColor = hex;
+                    this.nameLabel.textContent = name.toUpperCase();
+                });
+            });
+        }
+    }
+
+    // Inicializar todas las instancias en la página
+    document.querySelectorAll('.color-game-island').forEach(island => {
+        new ColorGame(island);
+    });
+</script>

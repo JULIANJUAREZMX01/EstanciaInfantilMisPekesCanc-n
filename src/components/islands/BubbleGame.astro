@@ -1,0 +1,74 @@
+---
+---
+<div class="bubble-game-island bg-white p-6 rounded-2xl shadow-lg border border-blue-100 flex flex-col h-96 relative overflow-hidden">
+    <div class="flex justify-between items-center mb-4 z-10">
+        <h3 class="font-bold text-xl text-blue-700">Atrapa las Burbujas</h3>
+        <span class="bg-blue-100 text-blue-800 px-4 py-1 rounded-full font-bold">Puntos: <span id="score">0</span></span>
+    </div>
+    <div id="bubble-container" class="flex-1 relative bg-gradient-to-b from-blue-50 to-cyan-100 rounded-xl overflow-hidden border border-gray-200">
+    </div>
+</div>
+
+<style>
+    @keyframes float {
+        0% { transform: translateY(100%) scale(1); opacity: 1; }
+        100% { transform: translateY(-150px) scale(1.2); opacity: 0; }
+    }
+    .bubble {
+        position: absolute;
+        bottom: -20px;
+        border-radius: 50%;
+        cursor: pointer;
+        animation: float linear forwards;
+        box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1);
+    }
+</style>
+
+<script>
+    class BubbleGame {
+        constructor(container) {
+            this.area = container.querySelector('#bubble-container');
+            this.scoreLabel = container.querySelector('#score');
+            this.score = 0;
+            this.colors = ['bg-red-400', 'bg-blue-400', 'bg-green-400', 'bg-yellow-400'];
+            this.interval = null;
+            this.init();
+        }
+
+        init() {
+            this.interval = setInterval(() => this.spawnBubble(), 1200);
+        }
+
+        spawnBubble() {
+            if (this.area.childElementCount > 8) return;
+
+            const bubble = document.createElement('div');
+            const size = Math.random() * 40 + 40;
+            const left = Math.random() * 80 + 10;
+            const color = this.colors[Math.floor(Math.random() * this.colors.length)];
+            const duration = Math.random() * 2 + 3;
+
+            bubble.className = `bubble ${color}`;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${left}%`;
+            bubble.style.animationDuration = `${duration}s`;
+
+            bubble.addEventListener('click', () => {
+                bubble.remove();
+                this.score++;
+                this.scoreLabel.textContent = this.score;
+            });
+
+            bubble.addEventListener('animationend', () => {
+                bubble.remove();
+            });
+
+            this.area.appendChild(bubble);
+        }
+    }
+
+    document.querySelectorAll('.bubble-game-island').forEach(island => {
+        new BubbleGame(island);
+    });
+</script>
