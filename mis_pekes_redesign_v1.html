@@ -1,0 +1,195 @@
+<div style="width: 100%; background: linear-gradient(135deg, #f8faf9 0%, #f0f4f8 100%); min-height: 100vh; overflow-x: hidden;">
+
+  <!-- NAVBAR -->
+  <nav style="background: var(--color-background-primary); border-bottom: 0.5px solid var(--color-border-tertiary); position: sticky; top: 0; z-index: 100;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-weight: 600; font-size: 20px; color: var(--color-text-primary);">
+        <span style="color: #00b8a0; font-weight: 700;">Mis Pekes</span> 🌻
+      </div>
+      <div style="display: flex; gap: 2rem; align-items: center;">
+        <button onclick="sendPrompt('¿Cuáles son los requisitos de inscripción?')" style="border: none; background: transparent; color: var(--color-text-secondary); cursor: pointer; font-size: 14px;">Inscripciones</button>
+        <button onclick="sendPrompt('¿Dónde están ubicados?')" style="border: none; background: transparent; color: var(--color-text-secondary); cursor: pointer; font-size: 14px;">Ubicación</button>
+        <a href="https://wa.me/5219982415799" target="_blank" style="background: #25d366; color: white; border: none; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; text-decoration: none; font-size: 13px; font-weight: 500;">WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section style="background: linear-gradient(135deg, #00d4b8 0%, #00b8a0 50%, #1a4d47 100%); color: white; padding: 4rem 2rem; text-align: center; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: -50px; right: -100px; width: 300px; height: 300px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -80px; left: -120px; width: 250px; height: 250px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
+    
+    <div style="max-width: 700px; margin: 0 auto; position: relative; z-index: 2;">
+      <h1 style="font-size: 48px; font-weight: 600; margin: 0 0 1rem; letter-spacing: -0.5px;">Estancia Infantil <br><span style="font-size: 56px; font-weight: 700; background: linear-gradient(135deg, #fff 0%, #e8f5f2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Mis Pekes</span></h1>
+      <p style="font-size: 18px; margin: 0 0 2rem; line-height: 1.6; opacity: 0.95;">Creamos, Aprendemos y Crecemos Cada Día 🌱</p>
+      <p style="font-size: 14px; margin: 0 0 2rem; opacity: 0.85; line-height: 1.8;">En Mis Pekes, cada niño es un pekeño universo de posibilidades. Ofrecemos cuidado seguro, afectuoso y estimulante para bebés y preescolares en el corazón de Cancún.</p>
+      
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <button onclick="sendPrompt('Quiero inscribir a mi hijo en Mis Pekes')" style="background: white; color: #00b8a0; border: none; padding: 1rem 2rem; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 14px; transition: transform 0.2s;">Inscripciones Abiertas</button>
+        <button onclick="document.querySelector('#juegos').scrollIntoView({behavior:'smooth'})" style="background: transparent; color: white; border: 2px solid white; padding: 0.9rem 2rem; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 14px;">Juegos Educativos</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES SECTION -->
+  <section style="max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;">
+    <h2 style="font-size: 32px; font-weight: 600; margin: 0 0 3rem; text-align: center; color: var(--color-text-primary);">Nuestra Filosofía de Cuidado</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem;">
+      <!-- Card Seguridad -->
+      <div style="background: var(--color-background-primary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); padding: 2rem; transition: transform 0.3s, box-shadow 0.3s;">
+        <div style="font-size: 32px; margin-bottom: 1rem;">🔒</div>
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 0.8rem; color: #00b8a0;">Seguridad</h3>
+        <p style="font-size: 14px; color: var(--color-text-secondary); margin: 0; line-height: 1.6;">Bienestar integral. Espacios seguros, personal capacitado y protocolos de salud rigurosos.</p>
+      </div>
+      
+      <!-- Card Confianza -->
+      <div style="background: var(--color-background-primary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); padding: 2rem;">
+        <div style="font-size: 32px; margin-bottom: 1rem;">💚</div>
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 0.8rem; color: #00b8a0;">Confianza</h3>
+        <p style="font-size: 14px; color: var(--color-text-secondary); margin: 0; line-height: 1.6;">Comunicación transparente con padres. Reportes diarios y acceso a nuestros espacios.</p>
+      </div>
+      
+      <!-- Card Empatía -->
+      <div style="background: var(--color-background-primary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); padding: 2rem;">
+        <div style="font-size: 32px; margin-bottom: 1rem;">🫶</div>
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 0.8rem; color: #00b8a0;">Empatía</h3>
+        <p style="font-size: 14px; color: var(--color-text-secondary); margin: 0; line-height: 1.6;">Atención personalizada. Respetamos el ritmo y necesidades particulares de cada niño.</p>
+      </div>
+      
+      <!-- Card Compromiso -->
+      <div style="background: var(--color-background-primary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); padding: 2rem;">
+        <div style="font-size: 32px; margin-bottom: 1rem;">🌟</div>
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 0.8rem; color: #00b8a0;">Compromiso</h3>
+        <p style="font-size: 14px; color: var(--color-text-secondary); margin: 0; line-height: 1.6;">Desarrollo integral. Estimulación temprana con metodologías educativas comprobadas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS SECTION -->
+  <section style="background: var(--color-background-secondary); padding: 4rem 2rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="font-size: 32px; font-weight: 600; margin: 0 0 3rem; text-align: center; color: var(--color-text-primary);">Nuestros Servicios</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <!-- Servicio 1 -->
+        <div style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; border: 0.5px solid var(--color-border-tertiary);">
+          <div style="height: 120px; background: linear-gradient(135deg, #ffd6a5 0%, #ffb88c 100%); display: flex; align-items: center; justify-content: center; font-size: 48px;">🍽️</div>
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 0.8rem; color: #ff8c42;">Nutrición Balanceada</h3>
+            <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.6;">Menús diseñados por nutricionista. Respetamos alergias y preferencias dietéticas con recetas caseras.</p>
+          </div>
+        </div>
+        
+        <!-- Servicio 2 -->
+        <div style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; border: 0.5px solid var(--color-border-tertiary);">
+          <div style="height: 120px; background: linear-gradient(135deg, #a8dadc 0%, #457b9d 100%); display: flex; align-items: center; justify-content: center; font-size: 48px; color: white;">📚</div>
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 0.8rem; color: #457b9d;">Programa Educativo</h3>
+            <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.6;">Estimulación temprana estructurada. Desarrollo de lenguaje, motricidad y habilidades cognitivas.</p>
+          </div>
+        </div>
+        
+        <!-- Servicio 3 -->
+        <div style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; border: 0.5px solid var(--color-border-tertiary);">
+          <div style="height: 120px; background: linear-gradient(135deg, #c1ffa9 0%, #7bc043 100%); display: flex; align-items: center; justify-content: center; font-size: 48px;">⚽</div>
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 0.8rem; color: #7bc043;">Actividad Física</h3>
+            <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.6;">Juego libre y actividades psicomotrices. Espacios seguros para correr, trepar y explorar.</p>
+          </div>
+        </div>
+        
+        <!-- Servicio 4 -->
+        <div style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; border: 0.5px solid var(--color-border-tertiary);">
+          <div style="height: 120px; background: linear-gradient(135deg, #ffc6ff 0%, #ff6ec7 100%); display: flex; align-items: center; justify-content: center; font-size: 48px;">🎨</div>
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 0.8rem; color: #ff6ec7;">Expresión Creativa</h3>
+            <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.6;">Arte, música y expresión. Fomentamos la creatividad sin límites en un ambiente seguro.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONA INTERACTIVA -->
+  <section id="juegos" style="max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;">
+    <h2 style="font-size: 32px; font-weight: 600; margin: 0 0 1rem; text-align: center; color: var(--color-text-primary);">Zona de Aprendizaje Interactivo</h2>
+    <p style="text-align: center; color: var(--color-text-secondary); margin: 0 0 2rem; font-size: 14px;">Minijuegos educativos que estimulan el desarrollo cognitivo y motor</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+      <!-- Preview Game 1 -->
+      <div style="background: var(--color-background-primary); border-radius: var(--border-radius-lg); border: 2px dashed #00b8a0; padding: 2rem; text-align: center;">
+        <div style="font-size: 56px; margin-bottom: 1rem;">🫧</div>
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 0.8rem; color: var(--color-text-primary);">Atrapa Burbujas</h3>
+        <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0 0 1rem; line-height: 1.6;">Desarrolla coordinación motriz y velocidad visual. Toca las burbujas antes de que desaparezcan.</p>
+        <div style="background: linear-gradient(135deg, #a8dadc 0%, #457b9d 100%); height: 80px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: white; font-weight: 600;">Juego Interactivo</div>
+        <button onclick="sendPrompt('¿Cómo funciona el juego de burbujas? Quiero saber más sobre la estimulación motriz')" style="background: transparent; color: #00b8a0; border: 1px solid #00b8a0; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 500;">Más detalles</button>
+      </div>
+      
+      <!-- Preview Game 2 -->
+      <div style="background: var(--color-background-primary); border-radius: var(--border-radius-lg); border: 2px dashed #00b8a0; padding: 2rem; text-align: center;">
+        <div style="font-size: 56px; margin-bottom: 1rem;">🌈</div>
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 0.8rem; color: var(--color-text-primary);">Aprende Colores</h3>
+        <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0 0 1rem; line-height: 1.6;">Reconocimiento visual de colores primarios. Asocia nombres con tonalidades mediante interacción directa.</p>
+        <div style="background: linear-gradient(135deg, #ffb88c 0%, #ffa500 100%); height: 80px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: white; font-weight: 600;">Juego Interactivo</div>
+        <button onclick="sendPrompt('¿Cómo ayuda el juego de colores al desarrollo cognitivo?')" style="background: transparent; color: #00b8a0; border: 1px solid #00b8a0; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 500;">Más detalles</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section style="background: var(--color-background-secondary); padding: 4rem 2rem;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <h2 style="font-size: 32px; font-weight: 600; margin: 0 0 2rem; text-align: center; color: var(--color-text-primary);">Preguntas Frecuentes</h2>
+      
+      <div style="space-y: 1rem;">
+        <details style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+          <summary style="font-weight: 600; color: var(--color-text-primary); user-select: none;">¿Cuáles son los requisitos de inscripción?</summary>
+          <p style="font-size: 14px; color: var(--color-text-secondary); margin: 1rem 0 0; line-height: 1.6;">Se requiere: Acta de nacimiento, cartilla de vacunación actualizada, comprobante de domicilio, datos de contacto de emergencia y datos médicos relevantes (alergias, medicamentos).</p>
+        </details>
+        
+        <details style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+          <summary style="font-weight: 600; color: var(--color-text-primary); user-select: none;">¿Qué edades atienden?</summary>
+          <p style="font-size: 14px; color: var(--color-text-secondary); margin: 1rem 0 0; line-height: 1.6;">Recibimos niños desde 43 días de nacidos (lactantes) hasta 6 años (preescolar). Contamos con aulas separadas por etapa de desarrollo.</p>
+        </details>
+        
+        <details style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+          <summary style="font-weight: 600; color: var(--color-text-primary); user-select: none;">¿Cuál es el horario de atención?</summary>
+          <p style="font-size: 14px; color: var(--color-text-secondary); margin: 1rem 0 0; line-height: 1.6;">Lunes a viernes, 7:00 AM a 5:00 PM. Contamos con servicios de horario extendido previa solicitud.</p>
+        </details>
+        
+        <details style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.5rem; cursor: pointer;">
+          <summary style="font-weight: 600; color: var(--color-text-primary); user-select: none;">¿Cómo es la comunicación con los padres?</summary>
+          <p style="font-size: 14px; color: var(--color-text-secondary); margin: 1rem 0 0; line-height: 1.6;">Reportes diarios vía WhatsApp y fotos de las actividades. Reuniones mensuales con cuidadores y boletín educativo trimestral.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #1a4d47; color: white; padding: 3rem 2rem; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+        <div style="text-align: left;">
+          <h4 style="font-weight: 600; margin: 0 0 1rem;">Contacto</h4>
+          <p style="font-size: 13px; margin: 0.5rem 0;">📞 +52 998 241 5799</p>
+          <p style="font-size: 13px; margin: 0.5rem 0; opacity: 0.8;">Lunes a Viernes: 7:00 AM – 5:00 PM</p>
+        </div>
+        <div style="text-align: left;">
+          <h4 style="font-weight: 600; margin: 0 0 1rem;">Ubicación</h4>
+          <p style="font-size: 13px; margin: 0; opacity: 0.8;">Región 91, Manzana 48, Lote 8<br>Calle 38 Pte., C.P. 77516<br>Cancún, Q.R.</p>
+        </div>
+        <div style="text-align: left;">
+          <h4 style="font-weight: 600; margin: 0 0 1rem;">Síguenos</h4>
+          <a href="https://www.facebook.com/p/Estancia-Infantil-MIS-PEKES-100063553933907/" target="_blank" style="color: white; text-decoration: none; font-size: 13px;">👍 Facebook oficial</a>
+          <p style="font-size: 13px; margin: 0.5rem 0;"><a href="https://wa.me/5219982415799" style="color: white; text-decoration: none;">💬 WhatsApp directo</a></p>
+        </div>
+      </div>
+      <div style="border-top: 0.5px solid rgba(255,255,255,0.2); padding-top: 2rem;">
+        <p style="font-size: 12px; margin: 0; opacity: 0.7;">© 2026 Estancia Infantil "Mis Pekes". Todos los derechos reservados.</p>
+        <p style="font-size: 11px; margin: 0.5rem 0 0; opacity: 0.6;">Construido con Astro + SolidJS | Optimizado para máximo rendimiento</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
