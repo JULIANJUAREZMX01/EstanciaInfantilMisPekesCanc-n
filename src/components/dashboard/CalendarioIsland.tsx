@@ -5,7 +5,7 @@ type AttendanceType = 'asistencia' | 'inasistencia' | 'extra' | 'feriado';
 const DAYS_OF_WEEK = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
 const MONTHS = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 
-const CYCLE: (AttendanceType | '')[] = ['', 'asistencia', 'inasistencia', 'extra', ''];
+const CYCLE: (AttendanceType | '')[] = ['', 'asistencia', 'inasistencia', 'extra'];
 
 const dayColors: Record<AttendanceType, string> = {
   asistencia: 'bg-green-400 text-white',

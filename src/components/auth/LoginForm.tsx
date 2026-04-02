@@ -17,7 +17,7 @@ export default function LoginForm() {
       localStorage.setItem('pekes_session', email());
       window.location.href = '/dashboard/';
     } else {
-      setError('Usuario no encontrado. ¿Deseas registrarte?');
+      setError('Credenciales incorrectas. Verifica tu correo y PIN.');
       setLoading(false);
     }
   };

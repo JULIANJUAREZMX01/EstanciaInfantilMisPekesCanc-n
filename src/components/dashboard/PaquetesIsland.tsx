@@ -126,7 +126,13 @@ export default function PaquetesIsland() {
           <p class="text-lg font-extrabold">{getPackageName(enrollment()!.packageId)}</p>
           <p class="text-sm opacity-90 mt-1">Peke: {getChildName(enrollment()!.childId)} · Inicio: {enrollment()!.startDate}</p>
           <button
-            onClick={() => { setShowEnrollForm(false); setEnrollment(null); }}
+            onClick={() => {
+              if (confirm('¿Estás seguro de que deseas cancelar la inscripción?')) {
+                localStorage.removeItem('pekes_enrollment');
+                setEnrollment(null);
+                setShowEnrollForm(false);
+              }
+            }}
             class="mt-3 text-xs underline opacity-75 hover:opacity-100"
           >
             Cancelar inscripción
