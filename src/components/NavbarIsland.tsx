@@ -8,7 +8,8 @@ export default function NavbarIsland() {
     { href: '#nosotros', label: 'Nosotros' },
     { href: '#servicios', label: 'Servicios' },
     { href: '#paquetes', label: 'Paquetes' },
-    { href: '#juegos', label: 'Juegos' },
+    { href: '#juegos', label: '🎮 Juegos' },
+    { href: '#maya', label: '🌺 Maya' },
     { href: '#faq', label: 'FAQ' },
     { href: '#contacto', label: 'Contacto' },
   ];
