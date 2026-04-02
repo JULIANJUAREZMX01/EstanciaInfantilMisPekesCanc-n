@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LoginForm from '../components/auth/LoginForm.tsx';
+---
+<Layout title="Iniciar Sesión – Mis Pekes">
+  <div class="min-h-screen bg-gradient-to-br from-pekes-cream to-pekes-light/20 flex flex-col items-center justify-center px-4">
+    <!-- Logo/branding at top -->
+    <div class="mb-8 text-center">
+      <a href="/" class="inline-flex items-center gap-3">
+        <span class="text-4xl">🧸</span>
+        <span class="text-3xl font-extrabold text-pekes-dark">Mis Pekes</span>
+      </a>
+      <p class="mt-2 text-slate-500 text-sm">Portal para padres y tutores</p>
+    </div>
+    <!-- LoginForm island -->
+    <LoginForm client:load />
+    <!-- Links -->
+    <div class="mt-6 text-center text-sm text-slate-500">
+      ¿No tienes cuenta?
+      <a href="/registro" class="text-pekes-primary font-semibold hover:underline ml-1">Regístrate aquí</a>
+    </div>
+    <a href="/" class="mt-4 text-xs text-slate-400 hover:text-pekes-primary transition-colors">← Volver al inicio</a>
+  </div>
+</Layout>
