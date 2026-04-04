@@ -17,7 +17,10 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 		<title>{title}</title>
-	</head>
+	
+  <!-- impact.com STAT Tag -->
+  <script>(function(i,m,p,a,c,t){c.ire_o=p;c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};t=a.createElement(m);var z=a.getElementsByTagName(m)[0];t.async=1;t.src=i;z.parentNode.insertBefore(t,z)})('https://utt.impactcdn.com/P-A7155313-a1aa-4e8b-8664-478df8ea50a01.js','script','impactStat',document,window);impactStat('transformLinks');impactStat('trackImpression');</script>
+</head>
 	<body class="bg-pekes-cream font-sans text-slate-800 scroll-smooth antialiased">
 		<slot />
 	</body>
